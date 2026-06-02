@@ -15,11 +15,16 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.MAIN_REPO_DEPLOY_KEY }}
         run: |
+          set -e
+
           # Set up SSH
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          # Verify connectivity before cloning
+          ssh -T git@github.com 2>&1 | grep -q "successfully authenticated" || true
 
           # Clone main repo
           git clone git@github.com:RuckusLabs/ruckuslabs.co.git main-repo

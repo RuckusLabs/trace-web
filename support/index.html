@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy — Trace</title>
+  <title>Support — Trace</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,8 +17,6 @@
       --color-subtle: #9ca3af;
       --color-accent: #4f7eff;
       --color-accent-hover: #3b6ef5;
-      --color-orange: #f56322;
-      --color-orange-bg: rgba(245, 99, 34, 0.12);
       --color-surface: #f4f4f6;
       --color-border: rgba(0, 0, 0, 0.08);
       --color-nav-bg: rgba(255, 255, 255, 0.88);
@@ -102,27 +100,6 @@
       border-radius: 5px;
     }
 
-    .nav-divider {
-      width: 1px;
-      height: 16px;
-      background: var(--color-border);
-    }
-
-    .nav-link {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-muted);
-      text-decoration: none;
-      padding: var(--sp-1) var(--sp-3);
-      border-radius: var(--radius-full);
-      transition: color 0.15s, background 0.15s;
-    }
-
-    .nav-link:hover {
-      color: var(--color-text);
-      background: var(--color-surface);
-    }
-
     .nav-btn {
       display: inline-flex;
       align-items: center;
@@ -152,11 +129,11 @@
     }
 
     /* ─── Header ─── */
-    .privacy-header {
+    .support-header {
       margin-bottom: var(--sp-12);
     }
 
-    .privacy-header h1 {
+    .support-header h1 {
       font-size: 40px;
       font-weight: 800;
       letter-spacing: -1.5px;
@@ -184,18 +161,7 @@
       margin-bottom: var(--sp-4);
     }
 
-    ul {
-      margin: 0 0 var(--sp-4) var(--sp-5);
-    }
-
-    li {
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.65;
-      margin-bottom: var(--sp-1);
-    }
-
-    p strong, li strong {
+    p strong {
       color: var(--color-text);
       font-weight: 600;
     }
@@ -223,15 +189,74 @@
       margin: var(--sp-10) 0;
     }
 
-    .callout {
-      background: rgba(79, 126, 255, 0.06);
-      border: 1px solid rgba(79, 126, 255, 0.18);
+    /* ─── FAQ items ─── */
+    .faq {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-6);
+      margin-top: var(--sp-3);
+    }
+
+    .faq-item {
+      padding: var(--sp-5);
+      background: var(--color-surface);
       border-radius: var(--radius-md);
-      padding: var(--sp-4) var(--sp-5);
-      margin-bottom: var(--sp-8);
+    }
+
+    .faq-item h3 {
       font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--sp-2);
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+    }
+
+    /* ─── Contact card ─── */
+    .contact-card {
+      margin-top: var(--sp-3);
+      padding: var(--sp-5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+    }
+
+    .contact-card-text h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--sp-1);
+    }
+
+    .contact-card-text p {
+      font-size: 13px;
       color: var(--color-muted);
-      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .contact-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: var(--sp-2) var(--sp-4);
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+      text-decoration: none;
     }
 
     footer {
@@ -273,85 +298,60 @@
 <!-- ─── Main ─── -->
 <main>
 
-  <div class="privacy-header">
-    <h1>Privacy Policy</h1>
-    <p class="subtitle">Trace for Mac &nbsp;·&nbsp; Last updated June 2, 2026</p>
+  <div class="support-header">
+    <h1>Support</h1>
+    <p class="subtitle">Get help with Trace for Mac.</p>
   </div>
 
-  <div class="callout">
-    <strong>Short version:</strong> Trace collects no personal data. Everything stays on your Mac.
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <h3>Trace isn't capturing my screen — what's wrong?</h3>
+      <p>Trace requires the <strong>Screen Recording</strong> permission to function. Go to <strong>System Settings → Privacy &amp; Security → Screen &amp; System Audio Recording</strong> and make sure Trace is toggled on. If it doesn't appear in the list, try launching Trace first so macOS can register it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I overlay a screenshot?</h3>
+      <p>Press <code>⌘G</code> to capture a fresh screenshot of the area beneath the Trace window, or paste an image directly with <code>⌘V</code>. Use the opacity slider to blend the overlay with your running app.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I nudge the overlay position precisely?</h3>
+      <p>Use the arrow keys to move the overlay 1px at a time. Hold <strong>Shift</strong> to move in 10px increments. For finer alignment, zoom in on your app before adjusting.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is inversion mode?</h3>
+      <p>Press <code>⌘I</code> to toggle inversion mode. When on, pixels that match between the overlay and the live app cancel out to black, making misalignments stand out clearly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does Trace send any data off my Mac?</h3>
+      <p>No. Trace has no servers and makes no network requests. All screen content and preferences stay entirely on your device. See the <a href="../privacy/">Privacy Policy</a> for full details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which macOS version does Trace require?</h3>
+      <p>Trace requires <strong>macOS 26 or later</strong>.</p>
+    </div>
   </div>
-
-  <h2>Overview</h2>
-  <p>
-    Trace is a screenshot overlay tool for macOS. It captures the screen content beneath its
-    window so you can compare images pixel-by-pixel. All processing happens locally on your
-    device. Trace has no servers, no accounts, and no network activity.
-  </p>
-
-  <h2>Data We Do Not Collect</h2>
-  <p>Trace does not collect, transmit, store remotely, or share any of the following:</p>
-  <ul>
-    <li>Personal information or identifiers</li>
-    <li>Screen content or captured screenshots</li>
-    <li>Clipboard contents</li>
-    <li>Usage analytics or telemetry</li>
-    <li>Crash reports</li>
-    <li>Location data</li>
-    <li>Any other data about you or your device</li>
-  </ul>
-
-  <h2>Screen Recording Permission</h2>
-  <p>
-    Trace requests <strong>Screen Recording</strong> permission (via macOS Privacy &amp; Security
-    settings) to capture the area of the screen beneath its overlay window. This captured
-    content is displayed locally within the app only. It is never written to disk beyond your
-    session, never transmitted anywhere, and never used for any purpose other than displaying
-    the comparison overlay you requested.
-  </p>
-
-  <h2>Clipboard Access</h2>
-  <p>
-    Trace can read from and write to the system clipboard (<code>NSPasteboard</code>). It
-    reads the clipboard only when you explicitly paste an image into Trace, and writes to it
-    only when you explicitly copy a screenshot out. Trace does not monitor the clipboard in the
-    background or read it for any other purpose.
-  </p>
-
-  <h2>Local Preferences</h2>
-  <p>
-    App preferences — such as window opacity, dark mode, and whether tips are shown — are saved
-    to a JSON file at
-    <code>~/Library/Application&nbsp;Support/Trace/settings.json</code> on your Mac.
-    This file never leaves your device.
-  </p>
-
-  <h2>Third-Party SDKs &amp; Frameworks</h2>
-  <p>
-    Trace contains no third-party analytics, advertising, or crash-reporting frameworks.
-    It uses only Apple system frameworks (AppKit, ScreenCaptureKit, SwiftUI).
-  </p>
-
-  <h2>Updates</h2>
-  <p>
-    Updates are delivered through the Mac App Store, managed entirely by Apple. Trace itself
-    makes no network requests to check for or download updates.
-  </p>
 
   <hr />
 
   <h2>Contact</h2>
-  <p>
-    If you have questions about this privacy policy, please reach out at
-    <a href="mailto:support@ruckuslabs.co">support@ruckuslabs.co</a>.
-  </p>
+  <p>Can't find what you're looking for? We're happy to help.</p>
+
+  <div class="contact-card">
+    <div class="contact-card-text">
+      <h3>Email support</h3>
+      <p>We aim to respond within one business day.</p>
+    </div>
+    <a class="contact-btn" href="mailto:support@ruckuslabs.co">
+      Send email
+    </a>
+  </div>
 
 </main>
 
 <footer>
   <span>© 2026 Ruckus Labs</span>
-  <a href="../support/">Support</a>
   <a href="../privacy/">Privacy</a>
+  <a href="../support/">Support</a>
 </footer>
 
 </body>

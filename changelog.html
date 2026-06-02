@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — Trace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colors */
+      --color-bg: #ffffff;
+      --color-text: #0d0d0d;
+      --color-muted: #6b7280;
+      --color-subtle: #9ca3af;
+      --color-accent: #4f7eff;
+      --color-accent-hover: #3b6ef5;
+      --color-orange: #f56322;
+      --color-orange-bg: rgba(245, 99, 34, 0.12);
+      --color-surface: #f4f4f6;
+      --color-border: rgba(0, 0, 0, 0.08);
+      --color-nav-bg: rgba(255, 255, 255, 0.88);
+
+      /* Spacing scale */
+      --sp-1: 4px;
+      --sp-2: 8px;
+      --sp-3: 12px;
+      --sp-4: 16px;
+      --sp-5: 20px;
+      --sp-6: 24px;
+      --sp-8: 32px;
+      --sp-10: 40px;
+      --sp-12: 48px;
+      --sp-16: 64px;
+      --sp-20: 80px;
+      --sp-24: 96px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      background: var(--color-bg);
+      color: var(--color-text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── Nav ─── */
+    .nav-wrap {
+      position: fixed;
+      top: var(--sp-4);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    nav {
+      pointer-events: all;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-3);
+      background: var(--color-nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: none;
+      padding: var(--sp-1) var(--sp-2);
+    }
+
+    .nav-brand img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--color-border);
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-muted);
+      text-decoration: none;
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--radius-full);
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface);
+    }
+
+    .nav-link.active {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-4);
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .nav-btn:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ─── Main ─── */
+    main {
+      width: 100%;
+      max-width: 640px;
+      padding: 0 var(--sp-6);
+      padding-top: calc(var(--sp-16) + var(--sp-12));
+      padding-bottom: var(--sp-24);
+    }
+
+    /* ─── Header ─── */
+    .changelog-header {
+      margin-bottom: var(--sp-12);
+    }
+
+    .changelog-header h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: var(--sp-2);
+    }
+
+    .changelog-header p {
+      font-size: 16px;
+      color: var(--color-muted);
+    }
+
+    /* ─── Release ─── */
+    .release {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: var(--sp-8);
+      padding-bottom: var(--sp-12);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--sp-12);
+    }
+
+    .release:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .release-meta {
+      padding-top: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+    }
+
+    .release-version {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: -0.3px;
+    }
+
+    .release-date {
+      font-size: 13px;
+      color: var(--color-subtle);
+    }
+
+    .release-notes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-5);
+    }
+
+    .release-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    /* Tag pills */
+    .release-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px var(--sp-3);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      width: fit-content;
+      letter-spacing: 0.1px;
+    }
+
+    .release-tag.new {
+      background: rgba(79, 126, 255, 0.1);
+      color: var(--color-accent);
+    }
+
+    .release-tag.fix {
+      background: rgba(16, 185, 129, 0.1);
+      color: #059669;
+    }
+
+    .release-tag.improved {
+      background: rgba(245, 158, 11, 0.1);
+      color: #d97706;
+    }
+
+    .release-tag.removed {
+      background: rgba(239, 68, 68, 0.1);
+      color: #dc2626;
+    }
+
+    /* Note items */
+    .release-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .release-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: 14px;
+      color: var(--color-muted);
+      line-height: 1.55;
+    }
+
+    .release-items li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-subtle);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .release-items li strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width: 520px) {
+      .release {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ─── -->
+<div class="nav-wrap">
+  <nav>
+    <a class="nav-brand" href="index.html">
+      <img src="TraceAppIcon.png" alt="Trace icon">
+      Trace
+    </a>
+    <a class="nav-btn" href="https://github.com/damianmakki/trace/raw/refs/heads/build/Trace%20(v1.0.0).zip" download>
+      Download
+    </a>
+  </nav>
+</div>
+
+<!-- ─── Main ─── -->
+<main>
+
+  <div class="changelog-header">
+    <h1>Changelog</h1>
+    <p>What's new in Trace.</p>
+  </div>
+
+  <!-- v1.0.0 -->
+  <div class="release">
+    <div class="release-meta">
+      <span class="release-version">v1.0.0</span>
+      <span class="release-date">April 2026</span>
+    </div>
+    <div class="release-notes">
+      <div class="release-group">
+        <span class="release-tag new">New</span>
+        <ul class="release-items">
+          <li><strong>Initial release</strong> — Trace is now publicly available for macOS.</li>
+          <li><strong>Screenshot overlay</strong> — import any image and overlay it on top of your running app at any opacity.</li>
+          <li><strong>Pixel-level comparison</strong> — toggle inversion mode to spot misalignments instantly with <kbd>⌘I</kbd>.</li>
+          <li><strong>Thumbnail sidebar</strong> — manage multiple screenshots in a persistent sidebar, switch with <kbd>⌘1</kbd>–<kbd>⌘9</kbd>.</li>
+          <li><strong>Tab management</strong> — open, close, and switch between comparison tabs using keyboard shortcuts.</li>
+          <li><strong>Light &amp; Dark theme</strong> — toggle the app theme with <kbd>⌘D</kbd> to match your design context.</li>
+          <li><strong>1px nudge &amp; 10px nudge</strong> — fine-tune overlay position using <kbd>⌘↑</kbd> and <kbd>⌘⇧↑</kbd>.</li>
+          <li><strong>Screen recording permission flow</strong> — guided setup for macOS screen capture authorization.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v0.9.0 -->
+  <div class="release">
+    <div class="release-meta">
+      <span class="release-version">v0.9.0</span>
+      <span class="release-date">March 2026</span>
+    </div>
+    <div class="release-notes">
+      <div class="release-group">
+        <span class="release-tag new">New</span>
+        <ul class="release-items">
+          <li><strong>Drag to reposition</strong> — drag the overlay freely to align it with any element.</li>
+          <li><strong>Opacity slider</strong> — continuously blend the overlay from fully transparent to fully opaque.</li>
+          <li><strong>Capture shortcut</strong> — grab a fresh screenshot without leaving your workflow using <kbd>⌘G</kbd>.</li>
+        </ul>
+      </div>
+      <div class="release-group">
+        <span class="release-tag improved">Improved</span>
+        <ul class="release-items">
+          <li>Overlay rendering is now composited on the GPU for smoother real-time updates.</li>
+          <li>Permission dialog now links directly to the correct macOS System Settings pane.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v0.8.0 -->
+  <div class="release">
+    <div class="release-meta">
+      <span class="release-version">v0.8.0</span>
+      <span class="release-date">February 2026</span>
+    </div>
+    <div class="release-notes">
+      <div class="release-group">
+        <span class="release-tag new">New</span>
+        <ul class="release-items">
+          <li>First internal beta — core overlay engine and screenshot capture.</li>
+          <li>Menu bar integration for quick access without interrupting flow.</li>
+        </ul>
+      </div>
+      <div class="release-group">
+        <span class="release-tag fix">Fix</span>
+        <ul class="release-items">
+          <li>Fixed a crash on launch when screen recording permission was not yet granted.</li>
+          <li>Fixed overlay flickering when rapidly switching between Spaces.</li>
+        </ul>
+      </div>
+      <div class="release-group">
+        <span class="release-tag removed">Removed</span>
+        <ul class="release-items">
+          <li>Removed experimental grid overlay — will return in a future release with snapping support.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

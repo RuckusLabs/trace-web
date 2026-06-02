@@ -1,12 +1,198 @@
-<html doctype="html" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trace</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trace | Pixel-perfect design review for macOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+  <div class="nav-wrap">
+    <nav>
+      <a class="nav-brand" href="/">
+        <img src="TraceAppIcon.png" alt="Trace icon">
+        Trace
+      </a>
+      <a class="nav-btn" href="https://github.com/damianmakki/trace/raw/refs/heads/build/Trace%20(v1.0.0).zip" download>
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2v9m0 0-3-3m3 3 3-3M3 13.5v.75A1.75 1.75 0 0 0 4.75 16h8.5A1.75 1.75 0 0 0 15 14.25v-.75" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Download
+      </a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1>Design and code.<br>Aligned.</h1>
+      <p>Overlay screenshots on any app and compare pixel by pixel. Built for macOS.</p>
+      <div class="app-preview-wrap">
+        <div class="app-preview">
+          <img class="slide active" src="images/screens/01-design.png" alt="Trace design overlay">
+          <img class="slide" src="images/screens/02-overlay.png" alt="Trace overlay comparison">
+          <img class="slide" src="images/screens/03-preferences.png" alt="Trace preferences">
+        </div>
+        <div class="slide-dots">
+          <button class="slide-dot active" aria-label="Slide 1"></button>
+          <button class="slide-dot" aria-label="Slide 2"></button>
+          <button class="slide-dot" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="shortcuts">
+      <h2>Stop Clicking.<br>Start Flying.</h2>
+      <p>Keyboard shortcuts that actually save you time.</p>
+      <div class="shortcuts-card">
+        <div class="shortcut-row" data-key="g" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>G</kbd></div>
+          <div class="shortcut-icon"><img src="images/camera.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">Capture Screenshot</span></div>
+        </div>
+        <div class="shortcut-row" data-key="\\" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>\</kbd></div>
+          <div class="shortcut-icon"><img src="images/sidebar.squares.left.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">Toggle Thumbnail Sidebar</span></div>
+        </div>
+        <div class="shortcut-row" data-key="1" data-meta data-digit>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>1</kbd></div>
+          <div class="shortcut-icon"><img src="images/rectangle.stack.svg" alt=""></div>
+          <div class="shortcut-info">
+            <span class="shortcut-name">Switch to Tab 1</span>
+            <span class="shortcut-desc">Works with 1–9 keys.</span>
+          </div>
+        </div>
+        <div class="shortcut-row" data-key="ArrowUp" data-arrow>
+          <div class="shortcut-key"><kbd>↑</kbd></div>
+          <div class="shortcut-icon"><img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">Move by 1px</span></div>
+        </div>
+        <div class="shortcut-row" data-key="ArrowUp" data-arrow data-shift>
+          <div class="shortcut-key"><kbd>Shift</kbd><span class="key-plus">+</span><kbd>↑</kbd></div>
+          <div class="shortcut-icon"><img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">Move by 10px</span></div>
+        </div>
+        <div class="shortcut-row" data-key="t" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>T</kbd></div>
+          <div class="shortcut-icon"><img src="images/rectangle.badge.plus.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">New Tab</span></div>
+        </div>
+        <div class="shortcut-row" data-key="w" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>W</kbd></div>
+          <div class="shortcut-icon"><img src="images/rectangle.badge.minus.svg" alt=""></div>
+          <div class="shortcut-info"><span class="shortcut-name">Close Current Tab</span></div>
+        </div>
+        <div class="shortcut-row" data-key="i" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>I</kbd></div>
+          <div class="shortcut-icon"><img src="images/circle.lefthalf.filled.svg" alt=""></div>
+          <div class="shortcut-info">
+            <span class="shortcut-name">Toggle Inversion</span>
+            <span class="shortcut-desc">Switch between normal and regular screenshot inversions.</span>
+          </div>
+        </div>
+        <div class="shortcut-row" data-key="d" data-meta>
+          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>D</kbd></div>
+          <div class="shortcut-icon"><img src="images/circle.lefthalf.filled.righthalf.striped.horizontal.inverse.svg" alt=""></div>
+          <div class="shortcut-info">
+            <span class="shortcut-name">Toggle Theme</span>
+            <span class="shortcut-desc">Switch between Light and Dark modes.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="icon-scene">
+        <div class="icon-wrapper" id="cta-icon">
+          <img class="icon-layer" id="cta-face" src="TraceAppIcon.png" alt="Trace app icon">
+          <div class="icon-sheen" id="cta-sheen"></div>
+        </div>
+        <div class="icon-shadow" id="cta-shadow"></div>
+      </div>
+      <h2>Trace</h2>
+      <a class="btn-download" href="https://github.com/damianmakki/trace/raw/refs/heads/build/Trace%20(v1.0.0).zip" download>
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2v9m0 0-3-3m3 3 3-3M3 13.5v.75A1.75 1.75 0 0 0 4.75 16h8.5A1.75 1.75 0 0 0 15 14.25v-.75" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Download for macOS
+      </a>
+      <p class="platform-note">Requires macOS 26 or later.</p>
+      <!-- <button class="btn-orange" id="hintsBtn">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.25" />
+          <path d="M6 5.5v3M6 4h.01" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+        </svg>
+        Manual macOS Permission Override Required
+      </button> -->
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="modal-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="rgba(79,126,255,0.12)" />
+          <path d="M16 7l7 4v5c0 4-3 7.5-7 9-4-1.5-7-5-7-9v-5l7-4z" fill="none" stroke="#4f7eff" stroke-width="1.75" stroke-linejoin="round" />
+          <path d="M13 16l2 2 4-4" stroke="#4f7eff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h2 class="modal-title" id="modalTitle">Allow Screen Recording</h2>
+      <p class="modal-body">Trace needs permission to capture your screen. Follow these steps to enable it:</p>
+      <ol class="modal-steps">
+        <li><span class="step-num">1</span><span>Open <strong>System Settings</strong> <span class="kbd">⌘ Space</span> → type <em>System Settings</em></span></li>
+        <li><span class="step-num">2</span><span>Go to <strong>Privacy &amp; Security</strong> → <strong>Screen &amp; System Audio Recording</strong></span></li>
+        <li><span class="step-num">3</span><span>Toggle <strong>Trace</strong> on</span></li>
+        <li><span class="step-num">4</span><span>Relaunch Trace if prompted</span></li>
+      </ol>
+      <a class="modal-btn" href="x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture">
+        Open Privacy &amp; Security
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Trace",
+    "alternativeName": "Trace Pixel-Perfect Overlay Tool",
+    "description": "Trace is a free utility for macOS that allows designers to overlay screenshots on top of designs, enabling pixel-perfect building and high-fidelity UI implementation.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "macOS 26 or later",
+    "url": "https://ruckuslabs.co/trace/",
+    "image": "https://raw.githubusercontent.com/damianmakki/trace/refs/heads/website/TraceAppIcon.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Screenshot overlay for pixel-perfect alignment",
+      "Opacity and transparency controls",
+      "Designed specifically for macOS workflow",
+      "High-fidelity UI verification"
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "Ruckus Labs"
+    }
+  }
+  </script>
 </body>
 
 </html>

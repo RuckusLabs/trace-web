@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout trace repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Push to main repo
         env:
@@ -26,17 +26,17 @@ jobs:
           # Verify connectivity before cloning
           ssh -T git@github.com 2>&1 | grep -q "successfully authenticated" || true
 
-          # Clone main repo
-          git clone git@github.com:RuckusLabs/ruckuslabs.co.git main-repo
+          # Clone main repo into /tmp to keep it fully separate from workspace
+          git clone git@github.com:RuckusLabs/ruckuslabs.co.git /tmp/main-repo
 
           # Sync trace files into /trace subfolder
           rsync -av --delete \
             --exclude='.git' \
             --exclude='.github' \
-            ./ main-repo/trace/
+            ./ /tmp/main-repo/trace/
 
           # Commit and push
-          cd main-repo
+          cd /tmp/main-repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add trace/

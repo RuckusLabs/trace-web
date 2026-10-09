@@ -1,397 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy — Trace</title>
-  <meta name="description" content="Trace collects no personal data. Everything stays on your Mac — no analytics, no network requests, no third-party SDKs." />
-  <meta name="keywords" content="Trace privacy policy, no data collection, macOS app privacy, local processing" />
-  <link rel="canonical" href="https://ruckuslabs.co/trace/privacy/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ruckuslabs.co/trace/privacy/" />
-  <meta property="og:title" content="Privacy Policy — Trace" />
-  <meta property="og:description" content="Trace collects no personal data. Everything stays on your Mac." />
-  <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <meta property="og:site_name" content="Trace by Ruckus Labs" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Privacy Policy — Trace" />
-  <meta name="twitter:description" content="Trace collects no personal data. Everything stays on your Mac." />
-  <meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <link rel="icon" type="image/png" href="../favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="../favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="&nbsp;"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #0d0d0d;
-      --color-muted: #6b7280;
-      --color-subtle: #9ca3af;
-      --color-accent: #4f7eff;
-      --color-accent-hover: #3b6ef5;
-      --color-orange: #f56322;
-      --color-orange-bg: rgba(245, 99, 34, 0.12);
-      --color-surface: #f4f4f6;
-      --color-border: rgba(0, 0, 0, 0.08);
-      --color-nav-bg: rgba(255, 255, 255, 0.88);
-
-      --sp-1: 4px;
-      --sp-2: 8px;
-      --sp-3: 12px;
-      --sp-4: 16px;
-      --sp-5: 20px;
-      --sp-6: 24px;
-      --sp-8: 32px;
-      --sp-10: 40px;
-      --sp-12: 48px;
-      --sp-16: 64px;
-      --sp-20: 80px;
-      --sp-24: 96px;
-
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
-      --radius-full: 9999px;
-
-      font-family: 'Inter', sans-serif;
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
+    <title>Trace Privacy — Local Screenshots, No Accounts</title><meta name="description" content="Trace processes screenshots locally on your Mac. Learn about screen recording permission, clipboard access, session-only images, and local preferences.">
+    <link rel="canonical" href="https://ruckuslabs.co/trace/privacy/"><meta property="og:type" content="website"><meta property="og:url" content="https://ruckuslabs.co/trace/privacy/">
+    <meta property="og:title" content="Trace Privacy — Local Screenshots, No Accounts"><meta property="og:description" content="Trace processes screenshots locally on your Mac. Learn about screen recording permission, clipboard access, session-only images, and local preferences.">
+    <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trace screenshot overlay comparison for Mac"><meta property="og:site_name" content="Trace by Ruckus Labs">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trace Privacy — Local Screenshots, No Accounts"><meta name="twitter:description" content="Trace processes screenshots locally on your Mac. Learn about screen recording permission, clipboard access, session-only images, and local preferences."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
+    <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="../favicon-128x128.png" sizes="128x128">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css?v=12">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trace Privacy Policy",
+    "url": "https://ruckuslabs.co/trace/privacy/",
+    "description": "Trace processes screenshots locally, without accounts, telemetry, or screenshot uploads."
     }
-
-    html {
-      background: var(--color-bg);
-      color: var(--color-text);
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* ─── Nav ─── */
-    .nav-wrap {
-      position: fixed;
-      top: var(--sp-4);
-      left: 0;
-      right: 0;
-      z-index: 50;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    nav {
-      pointer-events: all;
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-3);
-      background: var(--color-nav-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-full);
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text);
-      text-decoration: none;
-      padding: var(--sp-1) var(--sp-2);
-    }
-
-    .nav-brand img {
-      width: 20px;
-      height: 20px;
-      border-radius: 5px;
-    }
-
-    .nav-divider {
-      width: 1px;
-      height: 16px;
-      background: var(--color-border);
-    }
-
-    .nav-link {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-muted);
-      text-decoration: none;
-      padding: var(--sp-1) var(--sp-3);
-      border-radius: var(--radius-full);
-      transition: color 0.15s, background 0.15s;
-    }
-
-    .nav-link:hover {
-      color: var(--color-text);
-      background: var(--color-surface);
-    }
-
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sp-2);
-      padding: var(--sp-2) var(--sp-4);
-      background: var(--color-accent);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      transition: background 0.15s, transform 0.15s;
-    }
-
-    .nav-btn:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-1px);
-    }
-
-    /* ─── Main ─── */
-    main {
-      width: 100%;
-      max-width: 640px;
-      padding: 0 var(--sp-6);
-      padding-top: calc(var(--sp-16) + var(--sp-12));
-      padding-bottom: var(--sp-24);
-    }
-
-    /* ─── Header ─── */
-    .privacy-header {
-      margin-bottom: var(--sp-12);
-    }
-
-    .privacy-header h1 {
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: var(--sp-2);
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: var(--color-muted);
-    }
-
-    /* ─── Content ─── */
-    h2 {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-top: var(--sp-10);
-      margin-bottom: var(--sp-3);
-    }
-
-    p {
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.65;
-      margin-bottom: var(--sp-4);
-    }
-
-    ul {
-      margin: 0 0 var(--sp-4) var(--sp-5);
-    }
-
-    li {
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.65;
-      margin-bottom: var(--sp-1);
-    }
-
-    p strong, li strong {
-      color: var(--color-text);
-      font-weight: 600;
-    }
-
-    code {
-      font-size: 13px;
-      background: var(--color-surface);
-      border-radius: var(--radius-sm);
-      padding: 1px 6px;
-      color: var(--color-text);
-    }
-
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--color-border);
-      margin: var(--sp-10) 0;
-    }
-
-    .callout {
-      background: rgba(79, 126, 255, 0.06);
-      border: 1px solid rgba(79, 126, 255, 0.18);
-      border-radius: var(--radius-md);
-      padding: var(--sp-4) var(--sp-5);
-      margin-bottom: var(--sp-8);
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.6;
-    }
-
-    footer {
-      width: 100%;
-      max-width: 640px;
-      padding: 0 var(--sp-6) var(--sp-10);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      font-size: 13px;
-      color: var(--color-subtle);
-    }
-
-    footer a {
-      color: var(--color-muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    footer a:hover { color: var(--color-text); }
-  </style>
-</head>
-<body>
-
-<!-- ─── Nav ─── -->
-<div class="nav-wrap">
-  <nav>
-    <a class="nav-brand" href="../">
-      <img src="../TraceAppIcon.png" alt="Trace icon">
-      Trace
-    </a>
-    <a class="nav-btn" href="https://github.com/damianmakki/trace/raw/refs/heads/build/Trace%20(v1.0.0).zip" download>
-      Download
-    </a>
-  </nav>
-</div>
-
-<!-- ─── Main ─── -->
-<main>
-
-  <div class="privacy-header">
-    <h1>Privacy Policy</h1>
-    <p class="subtitle">Trace for Mac &nbsp;·&nbsp; Last updated June 2, 2026</p>
-  </div>
-
-  <div class="callout">
-    <strong>Short version:</strong> Trace collects no personal data. Everything stays on your Mac.
-  </div>
-
-  <h2>Overview</h2>
-  <p>
-    Trace is a screenshot overlay tool for macOS. It captures the screen content beneath its
-    window so you can compare images pixel-by-pixel. All processing happens locally on your
-    device. Trace has no servers, no accounts, and no network activity.
-  </p>
-
-  <h2>Data We Do Not Collect</h2>
-  <p>Trace does not collect, transmit, store remotely, or share any of the following:</p>
-  <ul>
-    <li>Personal information or identifiers</li>
-    <li>Screen content or captured screenshots</li>
-    <li>Clipboard contents</li>
-    <li>Usage analytics or telemetry</li>
-    <li>Crash reports</li>
-    <li>Location data</li>
-    <li>Any other data about you or your device</li>
-  </ul>
-
-  <h2>Screen Recording Permission</h2>
-  <p>
-    Trace requests <strong>Screen Recording</strong> permission (via macOS Privacy &amp; Security
-    settings) to capture the area of the screen beneath its overlay window. This captured
-    content is displayed locally within the app only. It is never written to disk beyond your
-    session, never transmitted anywhere, and never used for any purpose other than displaying
-    the comparison overlay you requested.
-  </p>
-
-  <h2>Clipboard Access</h2>
-  <p>
-    Trace can read from and write to the system clipboard (<code>NSPasteboard</code>). It
-    reads the clipboard only when you explicitly paste an image into Trace, and writes to it
-    only when you explicitly copy a screenshot out. Trace does not monitor the clipboard in the
-    background or read it for any other purpose.
-  </p>
-
-  <h2>Local Preferences</h2>
-  <p>
-    App preferences — such as window opacity, dark mode, and whether tips are shown — are saved
-    to a JSON file at
-    <code>~/Library/Application&nbsp;Support/Trace/settings.json</code> on your Mac.
-    This file never leaves your device.
-  </p>
-
-  <h2>Third-Party SDKs &amp; Frameworks</h2>
-  <p>
-    Trace contains no third-party analytics, advertising, or crash-reporting frameworks.
-    It uses only Apple system frameworks (AppKit, ScreenCaptureKit, SwiftUI).
-  </p>
-
-  <h2>Updates</h2>
-  <p>
-    Updates are delivered through the Mac App Store, managed entirely by Apple. Trace itself
-    makes no network requests to check for or download updates.
-  </p>
-
-  <hr />
-
-  <h2>Contact</h2>
-  <p>
-    If you have questions about this privacy policy, please reach out at
-    <a href="mailto:support@ruckuslabs.co">support@ruckuslabs.co</a>.
-  </p>
-
-</main>
-
-<footer>
-  <span>© 2026 Ruckus Labs</span>
-  <a href="../support/">Support</a>
-  <a href="../privacy/">Privacy</a>
-</footer>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Privacy Policy — Trace",
-  "description": "Trace collects no personal data. Everything stays on your Mac.",
-  "url": "https://ruckuslabs.co/trace/privacy/",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Trace",
-    "url": "https://ruckuslabs.co/trace/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Ruckus Labs",
-    "url": "https://ruckuslabs.co"
-  }
-}
-</script>
-</body>
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="nav-wrap">
+      <nav aria-label="Main navigation">
+        <a class="nav-brand" href="../"><img src="../images/icon.webp" width="20" height="20" alt="">Trace</a><a class="nav-link" href="../guides/figma-design-comparison/">Guide</a><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download</a>
+      </nav>
+    </div>
+    <main id="main" class="document container">
+      <header class="document-heading">
+        <p class="eyebrow">
+          TRACE / PRIVACY
+        </p>
+        <h1>
+          Privacy Policy
+        </h1>
+        <p>
+          Privacy policy · Updated October 8, 2026
+        </p>
+      </header>
+      <div class="callout">
+        <strong>Screenshots stay on your Mac.</strong> Trace processes images locally, without accounts, telemetry, or screenshot uploads.
+      </div>
+      <section>
+        <h2>
+          What Trace does
+        </h2>
+        <p>
+          Trace is a screenshot overlay tool for macOS. It captures the area inside its image viewport or accepts an image you paste, so you can compare a reference with content on your screen. Trace has no account system or backend service and makes no network requests itself.
+        </p>
+      </section>
+      <section>
+        <h2>
+          Screen Recording permission
+        </h2>
+        <p>
+          Screen Recording permission allows Trace to capture other applications when you request a screenshot. Trace excludes its own windows from captures. It does not continuously record your screen or upload captured content.
+        </p>
+        <p>
+          Screenshots and undo history are held in memory for the current app session. Trace does not save those images to its preferences file or restore them after quitting. If you explicitly copy an image to another application, that application controls what happens to its copy.
+        </p>
+      </section>
+      <section>
+        <h2>
+          Clipboard access
+        </h2>
+        <p>
+          Trace checks whether the clipboard contains a readable image to enable Paste. It reads the image when you invoke Paste, and writes an image when you invoke Copy. It does not run a background clipboard monitor or upload clipboard content.
+        </p>
+      </section>
+      <section>
+        <h2>
+          Local preferences
+        </h2>
+        <p>
+          Trace saves preferences and window state, including appearance, window opacity, tips, and window positions. These are stored in a JSON file in Trace’s Application Support directory, inside its app container when sandboxed. Screenshot data and undo history are not saved there.
+        </p>
+      </section>
+      <section>
+        <h2>
+          Data collection and third parties
+        </h2>
+        <p>
+          Trace does not collect personal information, usage analytics, location data, or crash reports through its own telemetry. It contains no third-party analytics, advertising, or crash-reporting SDKs. Its image processing uses Apple system frameworks.
+        </p>
+        <p>
+          Distribution and updates are handled by Apple through the Mac App Store. Opening the App Store from Trace sends you to Apple’s application; Apple’s own privacy practices apply there.
+        </p>
+      </section>
+      <section>
+        <h2>
+          This website
+        </h2>
+        <p>
+          This marketing website does not include analytics or advertising scripts. It requests Inter font files from Google Fonts; your browser connects to Google to load them. The website host may process standard request information to serve pages. These website requests are separate from the Trace app’s local screenshot processing.
+        </p>
+      </section>
+      <section>
+        <h2>
+          Questions?
+        </h2>
+        <p>
+          Contact <a href="mailto:support@ruckuslabs.co">support@ruckuslabs.co</a> with questions about this policy.
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© 2026 Ruckus Labs</span><a href="../privacy/">Privacy</a><a href="../support/">Support</a><a href="../guides/figma-design-comparison/">Guide</a>
+    </footer>
+  </body>
 </html>

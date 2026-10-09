@@ -1,227 +1,455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trace | Pixel-perfect design review for macOS</title>
-  <meta name="description" content="Trace is a free macOS utility that overlays design screenshots on your running app so you can compare them pixel by pixel. Build with precision." />
-  <meta name="keywords" content="pixel perfect, design review, design overlay, screenshot comparison, macOS design tool, UI implementation, design engineer, Trace app" />
-  <link rel="canonical" href="https://ruckuslabs.co/trace/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ruckuslabs.co/trace/" />
-  <meta property="og:title" content="Trace — Pixel-perfect design review for macOS" />
-  <meta property="og:description" content="Overlay your design screenshots on any running app and compare them pixel by pixel. Free for macOS." />
-  <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Trace by Ruckus Labs" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trace — Pixel-perfect design review for macOS" />
-  <meta name="twitter:description" content="Overlay your design screenshots on any running app and compare them pixel by pixel. Free for macOS." />
-  <meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="&nbsp;"/>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-  <div class="nav-wrap">
-    <nav>
-      <a class="nav-brand" href="https://ruckuslabs.co/trace">
-        <img src="TraceAppIcon.png" alt="Trace icon">
-        Trace
-      </a>
-      <a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12" download>
-        <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
-          <path d="M9 2v9m0 0-3-3m3 3 3-3M3 13.5v.75A1.75 1.75 0 0 0 4.75 16h8.5A1.75 1.75 0 0 0 15 14.25v-.75" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        Download
-      </a>
-    </nav>
-  </div>
-
-  <main>
-    <section class="hero">
-      <h1>Design and code.<br>Aligned.</h1>
-      <p>Overlay screenshots on any app and compare pixel by pixel. Built for macOS.</p>
-      <div class="app-preview-wrap">
-        <div class="app-preview">
-          <img class="slide active" src="images/screens/01-design.png" alt="Trace design overlay">
-          <img class="slide" src="images/screens/02-overlay.png" alt="Trace overlay comparison">
-          <img class="slide" src="images/screens/03-preferences.png" alt="Trace preferences">
-        </div>
-        <div class="slide-dots">
-          <button class="slide-dot active" aria-label="Slide 1"></button>
-          <button class="slide-dot" aria-label="Slide 2"></button>
-          <button class="slide-dot" aria-label="Slide 3"></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="shortcuts">
-      <h2>Stop Clicking.<br>Start Flying.</h2>
-      <p>Keyboard shortcuts that actually save you time.</p>
-      <div class="shortcuts-card">
-        <div class="shortcut-row" data-key="g" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>G</kbd></div>
-          <div class="shortcut-icon"><img src="images/camera.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">Capture Screenshot</span></div>
-        </div>
-        <div class="shortcut-row" data-key="\\" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>\</kbd></div>
-          <div class="shortcut-icon"><img src="images/sidebar.squares.left.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">Toggle Thumbnail Sidebar</span></div>
-        </div>
-        <div class="shortcut-row" data-key="1" data-meta data-digit>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>1</kbd></div>
-          <div class="shortcut-icon"><img src="images/rectangle.stack.svg" alt=""></div>
-          <div class="shortcut-info">
-            <span class="shortcut-name">Switch to Tab 1</span>
-            <span class="shortcut-desc">Works with 1–9 keys.</span>
-          </div>
-        </div>
-        <div class="shortcut-row" data-key="ArrowUp" data-arrow>
-          <div class="shortcut-key"><kbd>↑</kbd></div>
-          <div class="shortcut-icon"><img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">Move by 1px</span></div>
-        </div>
-        <div class="shortcut-row" data-key="ArrowUp" data-arrow data-shift>
-          <div class="shortcut-key"><kbd>Shift</kbd><span class="key-plus">+</span><kbd>↑</kbd></div>
-          <div class="shortcut-icon"><img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">Move by 10px</span></div>
-        </div>
-        <div class="shortcut-row" data-key="t" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>T</kbd></div>
-          <div class="shortcut-icon"><img src="images/rectangle.badge.plus.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">New Tab</span></div>
-        </div>
-        <div class="shortcut-row" data-key="w" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>W</kbd></div>
-          <div class="shortcut-icon"><img src="images/rectangle.badge.minus.svg" alt=""></div>
-          <div class="shortcut-info"><span class="shortcut-name">Close Current Tab</span></div>
-        </div>
-        <div class="shortcut-row" data-key="i" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>I</kbd></div>
-          <div class="shortcut-icon"><img src="images/circle.lefthalf.filled.svg" alt=""></div>
-          <div class="shortcut-info">
-            <span class="shortcut-name">Toggle Inversion</span>
-            <span class="shortcut-desc">Switch between normal and regular screenshot inversions.</span>
-          </div>
-        </div>
-        <div class="shortcut-row" data-key="d" data-meta>
-          <div class="shortcut-key"><kbd>⌘</kbd><span class="key-plus">+</span><kbd>D</kbd></div>
-          <div class="shortcut-icon"><img src="images/circle.lefthalf.filled.righthalf.striped.horizontal.inverse.svg" alt=""></div>
-          <div class="shortcut-info">
-            <span class="shortcut-name">Toggle Theme</span>
-            <span class="shortcut-desc">Switch between Light and Dark modes.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="icon-scene">
-        <div class="icon-wrapper" id="cta-icon">
-          <img class="icon-layer" id="cta-face" src="TraceAppIcon.png" alt="Trace app icon">
-          <div class="icon-sheen" id="cta-sheen"></div>
-        </div>
-        <div class="icon-shadow" id="cta-shadow"></div>
-      </div>
-      <h2>Trace</h2>
-      <a class="btn-download" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12" download>
-        <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-          <path d="M9 2v9m0 0-3-3m3 3 3-3M3 13.5v.75A1.75 1.75 0 0 0 4.75 16h8.5A1.75 1.75 0 0 0 15 14.25v-.75" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        Download for macOS
-      </a>
-      <p class="platform-note">Requires macOS 26 or later.</p>
-      <!-- <button class="btn-orange" id="hintsBtn">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.25" />
-          <path d="M6 5.5v3M6 4h.01" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
-        </svg>
-        Manual macOS Permission Override Required
-      </button> -->
-    </section>
-  </main>
-
-  <div class="modal-backdrop" id="modalBackdrop">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Close">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
-        </svg>
-      </button>
-      <div class="modal-icon">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <rect width="32" height="32" rx="8" fill="rgba(79,126,255,0.12)" />
-          <path d="M16 7l7 4v5c0 4-3 7.5-7 9-4-1.5-7-5-7-9v-5l7-4z" fill="none" stroke="#4f7eff" stroke-width="1.75" stroke-linejoin="round" />
-          <path d="M13 16l2 2 4-4" stroke="#4f7eff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </div>
-      <h2 class="modal-title" id="modalTitle">Allow Screen Recording</h2>
-      <p class="modal-body">Trace needs permission to capture your screen. Follow these steps to enable it:</p>
-      <ol class="modal-steps">
-        <li><span class="step-num">1</span><span>Open <strong>System Settings</strong> <span class="kbd">⌘ Space</span> → type <em>System Settings</em></span></li>
-        <li><span class="step-num">2</span><span>Go to <strong>Privacy &amp; Security</strong> → <strong>Screen &amp; System Audio Recording</strong></span></li>
-        <li><span class="step-num">3</span><span>Toggle <strong>Trace</strong> on</span></li>
-        <li><span class="step-num">4</span><span>Relaunch Trace if prompted</span></li>
-      </ol>
-      <a class="modal-btn" href="x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture">
-        Open Privacy &amp; Security
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <footer>
-    <span>© 2026 Ruckus Labs</span>
-    <a href="privacy/">Privacy</a>
-    <a href="support/">Support</a>
-  </footer>
-
-  <script src="script.js"></script>
-  <script type="application/ld+json">
-  {
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
+    <title>Trace — Screenshot Overlay &amp; Design Comparison for Mac</title><meta name="description" content="Compare your design with your build. Trace overlays screenshots on websites and apps so you can check spacing, alignment, and layout. Free for Mac.">
+    <link rel="canonical" href="https://ruckuslabs.co/trace/"><meta property="og:type" content="website"><meta property="og:url" content="https://ruckuslabs.co/trace/">
+    <meta property="og:title" content="Trace — Screenshot Overlay &amp; Design Comparison for Mac"><meta property="og:description" content="Compare your design with your build. Trace overlays screenshots on websites and apps so you can check spacing, alignment, and layout. Free for Mac.">
+    <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trace screenshot overlay comparison for Mac"><meta property="og:site_name" content="Trace by Ruckus Labs">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trace — Screenshot Overlay &amp; Design Comparison for Mac"><meta name="twitter:description" content="Compare your design with your build. Trace overlays screenshots on websites and apps so you can check spacing, alignment, and layout. Free for Mac."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
+    <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=12">
+    <script type="application/ld+json">
+    {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Trace",
-    "alternativeName": "Trace Pixel-Perfect Overlay Tool",
-    "description": "Trace is a free macOS utility that overlays design screenshots on running apps, enabling pixel-perfect UI implementation and design review.",
+    "description": "A screenshot overlay tool for Mac. Compare a design reference with a website or app using inversion, translucence, and precise positioning.",
     "applicationCategory": "DesignApplication",
     "operatingSystem": "macOS 26 or later",
     "url": "https://ruckuslabs.co/trace/",
     "image": "https://ruckuslabs.co/trace/images/og-image.png",
+    "downloadUrl": "https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12",
     "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"
     },
     "featureList": [
-      "Screenshot overlay for pixel-perfect alignment",
-      "Opacity and transparency controls",
-      "Keyboard-driven workflow",
-      "Inversion mode for contrast comparison",
-      "Designed specifically for macOS"
+    "Screenshot capture and clipboard image paste",
+    "Inversion and 50% image translucence",
+    "Multiple comparison tabs and thumbnail sidebar",
+    "Undo and redo within the current session",
+    "Actual Size and zoom controls",
+    "Lock the overlay to click through it"
     ],
     "author": {
-      "@type": "Organization",
-      "name": "Ruckus Labs",
-      "url": "https://ruckuslabs.co"
+    "@type": "Organization",
+    "name": "Ruckus Labs",
+    "url": "https://ruckuslabs.co"
     }
-  }
-  </script>
-</body>
-
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="nav-wrap">
+      <nav aria-label="Main navigation">
+        <a class="nav-brand" href="./"><img src="images/icon.webp" width="20" height="20" alt="">Trace</a><a class="nav-link" href="guides/figma-design-comparison/">Guide</a><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download</a>
+      </nav>
+    </div>
+    <main id="main">
+      <section class="hero">
+        <h1>
+          Design and code.<br>Aligned.
+        </h1>
+        <p>
+          Overlay screenshots on any app and compare pixel by pixel. Built for macOS.
+        </p>
+        <a class="secondary-button hero-download" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12">Free on the Mac App Store <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <div class="interactive-frame desktop-preview" aria-label="Desktop preview with a design editor and a floating Trace window">
+<div class="desktop-scene" id="desktop-scene">
+<div class="desktop-menubar" aria-hidden="true"><span class="desktop-apple">◆</span><strong>Design</strong><span>File</span><span>Edit</span><span>View</span><span class="desktop-time">9:41</span></div>
+<div class="design-window"><div class="design-titlebar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="design-file">Northstar / Design</span><span class="design-share">Share</span></div><div class="design-tools" aria-hidden="true"><span class="design-mark">◈</span><span class="tool-selected">↖</span><span>▦</span><span>□</span><span>○</span><span>T</span><span class="design-zoom">100%</span></div><div class="design-workspace"><aside class="design-layers" aria-label="Illustrative design layers"><div class="design-panel-title">Layers</div><div class="layer-selected">▦ <span>Desktop</span></div><div>◇ <span>Navigation</span></div><div>Ｔ <span>Heading</span></div><div>Ｔ <span>Description</span></div><div>▱ <span>Project cards</span></div></aside><div class="design-canvas"><div class="design-artboard" id="design-artboard"><img class="build-image" src="images/screens/sample-build.webp" width="1280" height="888" alt="Sample design in a Figma-inspired editor, with a slightly shifted heading" fetchpriority="high"></div></div><aside class="design-properties" aria-label="Illustrative design properties"><div class="design-panel-title">Design</div><strong>Frame</strong><div class="property-grid"><span>X <b>0</b></span><span>Y <b>0</b></span><span>W <b>640</b></span><span>H <b>444</b></span></div><strong>Fill</strong><span class="fill-property"><i></i> F8F9FC</span><strong>Layout</strong><span>↔ &nbsp; 24</span></aside></div></div>
+<div class="trace-window" id="trace-window" tabindex="0" role="group" aria-label="Floating Trace window. Drag the window or use arrow keys to align it with the design."><div class="frame-titlebar" id="trace-drag-handle"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trace</strong><span class="frame-tab">⌘1 &nbsp; Reference</span><span class="window-grip" aria-hidden="true">⠿</span></div><div class="frame-viewport" id="frame-viewport"><div id="reference-overlay" class="reference-overlay is-inverted"><img class="overlay-normal" id="overlay-image" src="images/screens/reference-content.webp" width="1280" height="888" alt="Inverted reference in the floating Trace window" draggable="false"><img class="overlay-inverted" src="images/screens/inverted-content.webp" width="1280" height="888" alt="" aria-hidden="true" draggable="false"></div></div></div>
+<div class="desktop-dock" aria-hidden="true"><span class="dock-design">◈</span><img src="images/icon.webp" width="24" height="24" alt=""><span class="dock-divider"></span><span class="dock-folder">▰</span></div>
+</div><div class="frame-controls" id="frame-controls" hidden><div class="frame-toggles"><label class="frame-toggle"><input type="checkbox" id="inversion" checked><span class="switch-track" aria-hidden="true"></span> Invert</label><label class="frame-toggle"><input type="checkbox" id="translucence" checked><span class="switch-track" aria-hidden="true"></span> 50% blend</label></div><button type="button" id="reset-overlay"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11a9 9 0 1 1 2.6 7.1M3 4v7h7"/></svg> Align Windows</button></div></div>
+        <p class="frame-disclosure">Northstar · A Figma-inspired design example using Trace screenshots. The heading is deliberately shifted.</p>
+        <div class="interaction-callout"><svg class="interaction-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg><div><strong>Try it yourself</strong><p class="frame-hint" id="frame-hint">Drag the floating Trace window to line up the design. Use the controls above to explore the comparison.</p></div></div>
+      </section>
+      <section class="how-it-works">
+        <h2>
+          A closer look.<br>A better match.
+        </h2>
+        <p class="section-subheadline">From design reference to a closer match, in three simple steps.</p>
+        <ol class="workflow-steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>
+                Capture or paste.
+              </h3>
+              <p>
+                Press <kbd>⌘G</kbd> to capture beneath Trace, or paste an image from your design tool with <kbd>⌘V</kbd>.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>
+                Move into place.
+              </h3>
+              <p>
+                Drag Trace over your app. Nudge with the arrow keys and return to the reference’s logical size with Actual Size.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>
+                See the differences.
+              </h3>
+              <p>
+                Invert and blend at 50%. Matching content becomes neutral gray at 100% window opacity; displaced edges stand out.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <a class="secondary-button" href="guides/figma-design-comparison/">Compare a Figma Design with Your Website <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+      <section class="shortcuts" id="shortcuts">
+        <h2>
+          Stop clicking.<br>Start flying.
+        </h2>
+        <p>
+          Keyboard shortcuts that actually save you time.
+        </p>
+        <div class="shortcuts-card">
+          <div class="shortcut-group">
+            <h3>
+              Capture & edit
+            </h3>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>G</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/camera.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Capture Screenshot</span><span class="shortcut-desc">Capture the area beneath Trace.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>V</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.plus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Paste an Image</span><span class="shortcut-desc">Bring in a design reference.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>C</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.stack.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Copy an Image</span><span class="shortcut-desc">Keep a capture outside Trace.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>Z</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/undo.svg" width="28" height="28" style="--glyph-scale: 1.04" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Undo</span><span class="shortcut-desc">Step back in the current tab.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⇧</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>Z</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/redo.svg" width="28" height="28" style="--glyph-scale: 1.04" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Redo</span><span class="shortcut-desc">Restore your last change.</span>
+              </div>
+            </div>
+          </div>
+          <div class="shortcut-group">
+            <h3>
+              Compare & align
+            </h3>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>I</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/circle.lefthalf.filled.svg" width="28" height="28" style="--glyph-scale: 0.88" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Inversion</span><span class="shortcut-desc">Make displaced edges stand out.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>L</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/circle.lefthalf.filled.svg" width="28" height="28" style="--glyph-scale: 0.88" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Translucence</span><span class="shortcut-desc">Switch between 50% and opaque.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>0</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Actual Size</span><span class="shortcut-desc">Return to the original logical size.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>+</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.plus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Zoom In</span><span class="shortcut-desc">Take a closer look.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>−</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.minus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Zoom Out</span><span class="shortcut-desc">See more of the reference.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>F</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Fit Window to Image</span><span class="shortcut-desc">Fit the frame around your reference.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>↑</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Nudge by 1 Point</span><span class="shortcut-desc">Works with all four arrow keys.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⇧</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>↑</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/arrow.up.and.down.and.arrow.left.and.right.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Nudge by 10 Points</span><span class="shortcut-desc">Move further with Shift + arrows.</span>
+              </div>
+            </div>
+          </div>
+          <div class="shortcut-group">
+            <h3>
+              Tabs & workspace
+            </h3>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>T</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.plus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">New Tab</span><span class="shortcut-desc">Keep another reference at hand.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>W</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.minus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Close Current Tab</span><span class="shortcut-desc">Finish a comparison.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>1–9</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.stack.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Switch Tabs</span><span class="shortcut-desc">Jump straight to a reference.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>\</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/sidebar.squares.left.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Thumbnail Sidebar</span><span class="shortcut-desc">See your references at a glance.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⇧</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>T</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.stack.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Tab Bar</span><span class="shortcut-desc">Give the image more room.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>N</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.plus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">New Window</span><span class="shortcut-desc">Compare another part of your build.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>D</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/circle.lefthalf.filled.righthalf.striped.horizontal.inverse.svg" width="28" height="28" style="--glyph-scale: 0.88" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Theme</span><span class="shortcut-desc">Switch between Light and Dark.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌃</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>L</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.stack.svg" width="28" height="28" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Lock / Unlock Overlay</span><span class="shortcut-desc">Lock Trace to click through it.</span>
+              </div>
+            </div>
+            <div class="shortcut-row">
+              <div class="shortcut-key">
+                <kbd>⌃</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>⌘</kbd><span class="key-plus" aria-hidden="true">+</span><kbd>H</kbd>
+              </div>
+              <div class="shortcut-icon">
+                <img src="images/rectangle.badge.minus.svg" width="28" height="28" style="--glyph-scale: 1.22" alt="">
+              </div>
+              <div class="shortcut-info">
+                <span class="shortcut-name">Show / Hide Overlays</span><span class="shortcut-desc">Keep Trace nearby when you need it.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="shortcut-note">
+          Shortcuts work in Trace. You can add ⌘ to arrow-key movement in Preferences.
+        </p>
+        <a class="secondary-button" href="support/#shortcuts">The Complete Keyboard Reference <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+      <section class="privacy-note">
+        <h2>
+          Your screen.<br>Your Mac.
+        </h2>
+        <p>
+          Screenshots stay on your Mac. No account required. Keep references in tabs, undo changes, or lock the overlay to click through to your app.
+        </p>
+        <p class="small-copy">
+          Images and undo history last for the current session. Preferences and window positions are saved for next time.
+        </p>
+        <a class="secondary-button" href="privacy/">Read the Privacy Policy <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+      <section class="quick-faq">
+        <h2>
+          Before you start.
+        </h2>
+        <p class="section-subheadline">A few useful details before your first comparison.</p>
+        <details>
+          <summary>
+            Can I use Trace with Figma? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary>
+          <p>
+            Copy a frame as an image and paste it into Trace, or capture a visible design. Trace uses screenshots and clipboard images, without a direct Figma connection.
+          </p>
+        </details>
+        <details>
+          <summary>
+            How does opacity work? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary>
+          <p>
+            Image translucence switches between 50% and fully opaque. Window opacity in Preferences adjusts the entire window. Use 50% image translucence and 100% window opacity for the default neutral-gray comparison.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Does Trace detect differences automatically? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary>
+          <p>
+            Trace is a visual comparison tool. You inspect the overlay yourself; it does not generate difference scores or automated reports.
+          </p>
+        </details>
+        <details><summary>Is Trace free? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary><p>Yes. Trace is free on the Mac App Store and requires macOS 26 or later.</p></details>
+        <details><summary>Can I compare more than one reference? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary><p>Yes. Keep multiple screenshots or pasted images in tabs, use the thumbnail sidebar to find them, or open another Trace window.</p></details>
+        <details><summary>Can I click through the overlay? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary><p>Yes. Lock the overlay with Control–Command–L to interact with the app underneath. Activate Trace again to unlock it.</p></details>
+        <details><summary>Are my screenshots saved between sessions? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary><p>Screenshots and undo history last for the current session. Copy an image out of Trace if you want to keep it. Preferences and window positions are saved between sessions.</p></details>
+        <details><summary>Why does Trace need Screen Recording permission? <svg class="ui-icon faq-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path class="faq-icon-vertical" d="M12 5v14"/></svg></summary><p>macOS requires Screen Recording permission to capture the area beneath Trace. You can also paste an image from the clipboard. Screenshots stay on your Mac; no account is required.</p></details>
+        <a class="secondary-button" href="support/">More Help with Trace <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+      <section class="cta">
+        <div class="icon-scene">
+          <div class="icon-wrapper" id="cta-icon">
+            <img class="icon-layer" id="cta-face" src="TraceAppIcon.png" width="120" height="120" alt="Trace app icon" loading="lazy">
+            <div class="icon-sheen" id="cta-sheen">
+            </div>
+          </div>
+          <div class="icon-shadow" id="cta-shadow">
+          </div>
+        </div>
+        <h2>
+          Trace
+        </h2>
+        <a class="btn-download" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download for macOS</a>
+        <p class="platform-note">
+          Free. Requires macOS 26 or later.
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© 2026 Ruckus Labs</span><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="guides/figma-design-comparison/">Guide</a>
+    </footer>
+    <script src="script.js?v=12" defer></script>
+  </body>
 </html>

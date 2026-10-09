@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
+    <title>How to Compare a Figma Design with a Live Website Using Trace</title><meta name="description" content="A practical guide to comparing Figma designs with a website on Mac: paste a reference image, align the overlay, use Actual Size, and inspect an inverted blend.">
+    <link rel="canonical" href="https://ruckuslabs.co/trace/guides/figma-design-comparison/"><meta property="og:type" content="website"><meta property="og:url" content="https://ruckuslabs.co/trace/guides/figma-design-comparison/">
+    <meta property="og:title" content="How to Compare a Figma Design with a Live Website Using Trace"><meta property="og:description" content="A practical guide to comparing Figma designs with a website on Mac: paste a reference image, align the overlay, use Actual Size, and inspect an inverted blend.">
+    <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trace screenshot overlay comparison for Mac"><meta property="og:site_name" content="Trace by Ruckus Labs">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How to Compare a Figma Design with a Live Website Using Trace"><meta name="twitter:description" content="A practical guide to comparing Figma designs with a website on Mac: paste a reference image, align the overlay, use Actual Size, and inspect an inverted blend."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
+    <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="../../favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="../../favicon-128x128.png" sizes="128x128">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css?v=12">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="nav-wrap">
+      <nav aria-label="Main navigation">
+        <a class="nav-brand" href="../../"><img src="../../images/icon.webp" width="20" height="20" alt="">Trace</a><a class="nav-link" href="../../guides/figma-design-comparison/">Guide</a><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download</a>
+      </nav>
+    </div>
+    <main id="main" class="document container guide">
+      <header class="document-heading">
+        <p class="eyebrow">
+          TRACE / WORKFLOW GUIDE
+        </p>
+        <h1>
+          Compare a Figma design with a live website
+        </h1>
+        <p>
+          Compare a Figma design with your implementation using a screenshot overlay on your Mac.
+        </p>
+      </header>
+      <div class="callout">
+        You’ll need Trace, macOS 26 or later, a design reference, and your website open in a browser. Trace uses images; there’s no Figma account connection or plugin to set up.
+      </div>
+      <section>
+        <h2>
+          1. Bring your reference into Trace
+        </h2>
+        <p>
+          In Figma, choose the frame or region you want to compare and use its <strong>Copy as PNG</strong> command. Switch to Trace and press <kbd>⌘V</kbd>. If your tool’s clipboard output is not an image, Trace cannot paste it; use a screenshot instead.
+        </p>
+        <p>
+          You can also put Trace over a visible design and press <kbd>⌘G</kbd>. Trace captures only the area inside its image viewport, excluding its own windows. This capture route requires Screen Recording permission. <a href="../../support/#permissions">Set up capture permission.</a>
+        </p>
+        <figure class="guide-figure">
+          <img src="../../images/screens/reference-1280.webp" srcset="../../images/screens/reference-640.webp 640w, ../../images/screens/reference-1280.webp 1280w" sizes="(max-width: 700px) calc(100vw - 48px), 720px" width="1280" height="960" alt="A sample reference image pasted into the current Trace app" loading="lazy" decoding="async">
+          <figcaption>
+            A reference pasted into Trace. The sample interface is a demonstration fixture.
+          </figcaption>
+        </figure>
+      </section>
+      <section>
+        <h2>
+          2. Match the scale before you align
+        </h2>
+        <p>
+          Set your browser to the viewport width used in your design, then press <kbd>⌘0</kbd> in Trace for Actual Size. This restores the image’s original logical size. A reference exported at a different scale may still need resizing; Actual Size does not infer your Figma frame size.
+        </p>
+        <p>
+          Trace’s tab tooltip shows both point and pixel dimensions. On Retina displays, those units differ. Keep browser zoom and reference scale consistent before judging spacing.
+        </p>
+      </section>
+      <section>
+        <h2>
+          3. Position the overlay over your website
+        </h2>
+        <p>
+          Drag Trace until a clear anchor—such as a heading or card corner—lines up. Nudge with the arrow keys for 1-point steps, or Shift plus an arrow for 10-point steps. If you enable Command-modified movement in Preferences, hold Command too.
+        </p>
+        <p>
+          For a closer look, use Trace’s Zoom In and Zoom Out controls. Return to Actual Size before making your final alignment judgment.
+        </p>
+      </section>
+      <section>
+        <h2>
+          4. Inspect the inverted blend
+        </h2>
+        <p>
+          Turn on inversion with <kbd>⌘I</kbd> and 50% image translucence with <kbd>⌘L</kbd>, if they are not already enabled. Set Window opacity in Preferences to 100%. Matching content blends to neutral gray; displaced edges remain visible.
+        </p>
+        <figure class="guide-figure">
+          <img src="../../images/screens/overlay-1280.webp" srcset="../../images/screens/overlay-640.webp 640w, ../../images/screens/overlay-1280.webp 1280w" sizes="(max-width: 700px) calc(100vw - 48px), 720px" width="1280" height="960" alt="Illustrative 50% inversion blend with displaced heading edges" loading="lazy" decoding="async">
+          <figcaption>
+            A comparison assembled from current Trace screenshots. The sample heading is deliberately shifted; matching areas become gray.
+          </figcaption>
+        </figure>
+        <p>
+          Start with large layout anchors, then inspect padding, gaps, text wrapping, and alignment. Font rendering, reference export scale, and browser zoom can also cause visible differences. Trace helps you inspect the blend; it does not decide which differences are errors.
+        </p>
+      </section>
+      <section>
+        <h2>
+          5. Refine your build without losing the reference
+        </h2>
+        <p>
+          Lock the overlay with <kbd>⌃⌘L</kbd> to click through to the website underneath, then bring Trace to the front using the Dock or Command-Tab and use the same shortcut to unlock it. Keep other references in tabs with <kbd>⌘T</kbd> and switch with <kbd>⌘1</kbd>–<kbd>⌘9</kbd>.
+        </p>
+        <p>
+          Each tab keeps its own undo history for the current session. Copy an image out if you need to save it elsewhere: screenshots and history are cleared when Trace quits.
+        </p>
+      </section>
+      <section class="contact-panel">
+        <div>
+          <h2>
+            Give your next build a closer look.
+          </h2>
+          <p>
+            Free on the Mac App Store. Built for macOS 26 and later.
+          </p>
+        </div>
+        <a class="button" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12">Get Trace <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© 2026 Ruckus Labs</span><a href="../../privacy/">Privacy</a><a href="../../support/">Support</a><a href="../../guides/figma-design-comparison/">Guide</a>
+    </footer>
+  </body>
+</html>

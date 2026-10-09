@@ -1,448 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — Trace</title>
-  <meta name="description" content="Get help with Trace for Mac. Find answers to common questions about permissions, overlays, keyboard shortcuts, and privacy." />
-  <meta name="keywords" content="Trace support, Trace FAQ, screen recording permission, screenshot overlay help, macOS app support" />
-  <link rel="canonical" href="https://ruckuslabs.co/trace/support/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ruckuslabs.co/trace/support/" />
-  <meta property="og:title" content="Support — Trace" />
-  <meta property="og:description" content="Get help with Trace for Mac — permissions, overlays, keyboard shortcuts, and more." />
-  <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <meta property="og:site_name" content="Trace by Ruckus Labs" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Support — Trace" />
-  <meta name="twitter:description" content="Get help with Trace for Mac — permissions, overlays, keyboard shortcuts, and more." />
-  <meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png" />
-  <link rel="icon" type="image/png" href="../favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="../favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="&nbsp;"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #0d0d0d;
-      --color-muted: #6b7280;
-      --color-subtle: #9ca3af;
-      --color-accent: #4f7eff;
-      --color-accent-hover: #3b6ef5;
-      --color-surface: #f4f4f6;
-      --color-border: rgba(0, 0, 0, 0.08);
-      --color-nav-bg: rgba(255, 255, 255, 0.88);
-
-      --sp-1: 4px;
-      --sp-2: 8px;
-      --sp-3: 12px;
-      --sp-4: 16px;
-      --sp-5: 20px;
-      --sp-6: 24px;
-      --sp-8: 32px;
-      --sp-10: 40px;
-      --sp-12: 48px;
-      --sp-16: 64px;
-      --sp-20: 80px;
-      --sp-24: 96px;
-
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
-      --radius-full: 9999px;
-
-      font-family: 'Inter', sans-serif;
-    }
-
-    html {
-      background: var(--color-bg);
-      color: var(--color-text);
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* ─── Nav ─── */
-    .nav-wrap {
-      position: fixed;
-      top: var(--sp-4);
-      left: 0;
-      right: 0;
-      z-index: 50;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    nav {
-      pointer-events: all;
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      padding: var(--sp-2) var(--sp-2) var(--sp-2) var(--sp-3);
-      background: var(--color-nav-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-full);
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text);
-      text-decoration: none;
-      padding: var(--sp-1) var(--sp-2);
-    }
-
-    .nav-brand img {
-      width: 20px;
-      height: 20px;
-      border-radius: 5px;
-    }
-
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sp-2);
-      padding: var(--sp-2) var(--sp-4);
-      background: var(--color-accent);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      transition: background 0.15s, transform 0.15s;
-    }
-
-    .nav-btn:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-1px);
-    }
-
-    /* ─── Main ─── */
-    main {
-      width: 100%;
-      max-width: 640px;
-      padding: 0 var(--sp-6);
-      padding-top: calc(var(--sp-16) + var(--sp-12));
-      padding-bottom: var(--sp-24);
-    }
-
-    /* ─── Header ─── */
-    .support-header {
-      margin-bottom: var(--sp-12);
-    }
-
-    .support-header h1 {
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      margin-bottom: var(--sp-2);
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: var(--color-muted);
-    }
-
-    /* ─── Content ─── */
-    h2 {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-top: var(--sp-10);
-      margin-bottom: var(--sp-3);
-    }
-
-    p {
-      font-size: 14px;
-      color: var(--color-muted);
-      line-height: 1.65;
-      margin-bottom: var(--sp-4);
-    }
-
-    p strong {
-      color: var(--color-text);
-      font-weight: 600;
-    }
-
-    code {
-      font-size: 13px;
-      background: var(--color-surface);
-      border-radius: var(--radius-sm);
-      padding: 1px 6px;
-      color: var(--color-text);
-    }
-
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--color-border);
-      margin: var(--sp-10) 0;
-    }
-
-    /* ─── FAQ items ─── */
-    .faq {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-6);
-      margin-top: var(--sp-3);
-    }
-
-    .faq-item {
-      padding: var(--sp-5);
-      background: var(--color-surface);
-      border-radius: var(--radius-md);
-    }
-
-    .faq-item h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: var(--sp-2);
-    }
-
-    .faq-item p {
-      margin-bottom: 0;
-    }
-
-    /* ─── Contact card ─── */
-    .contact-card {
-      margin-top: var(--sp-3);
-      padding: var(--sp-5);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--sp-4);
-    }
-
-    .contact-card-text h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: var(--sp-1);
-    }
-
-    .contact-card-text p {
-      font-size: 13px;
-      color: var(--color-muted);
-      margin-bottom: 0;
-    }
-
-    .contact-btn {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      padding: var(--sp-2) var(--sp-4);
-      background: var(--color-accent);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      transition: background 0.15s, transform 0.15s;
-    }
-
-    .contact-btn:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    footer {
-      width: 100%;
-      max-width: 640px;
-      padding: 0 var(--sp-6) var(--sp-10);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      font-size: 13px;
-      color: var(--color-subtle);
-    }
-
-    footer a {
-      color: var(--color-muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    footer a:hover { color: var(--color-text); }
-  </style>
-</head>
-<body>
-
-<!-- ─── Nav ─── -->
-<div class="nav-wrap">
-  <nav>
-    <a class="nav-brand" href="../">
-      <img src="../TraceAppIcon.png" alt="Trace icon">
-      Trace
-    </a>
-    <a class="nav-btn" href="https://github.com/damianmakki/trace/raw/refs/heads/build/Trace%20(v1.0.0).zip" download>
-      Download
-    </a>
-  </nav>
-</div>
-
-<!-- ─── Main ─── -->
-<main>
-
-  <div class="support-header">
-    <h1>Support</h1>
-    <p class="subtitle">Get help with Trace for Mac.</p>
-  </div>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-    <div class="faq-item">
-      <h3>Trace isn't capturing my screen — what's wrong?</h3>
-      <p>Trace requires the <strong>Screen Recording</strong> permission to function. Go to <strong>System Settings → Privacy &amp; Security → Screen &amp; System Audio Recording</strong> and make sure Trace is toggled on. If it doesn't appear in the list, try launching Trace first so macOS can register it.</p>
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
+    <title>Trace Support — Capture, Overlays &amp; Keyboard Shortcuts</title><meta name="description" content="Get help with Trace for Mac: screen recording permissions, clipboard images, inversion, opacity, tabs, and keyboard shortcuts.">
+    <link rel="canonical" href="https://ruckuslabs.co/trace/support/"><meta property="og:type" content="website"><meta property="og:url" content="https://ruckuslabs.co/trace/support/">
+    <meta property="og:title" content="Trace Support — Capture, Overlays &amp; Keyboard Shortcuts"><meta property="og:description" content="Get help with Trace for Mac: screen recording permissions, clipboard images, inversion, opacity, tabs, and keyboard shortcuts.">
+    <meta property="og:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trace screenshot overlay comparison for Mac"><meta property="og:site_name" content="Trace by Ruckus Labs">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trace Support — Capture, Overlays &amp; Keyboard Shortcuts"><meta name="twitter:description" content="Get help with Trace for Mac: screen recording permissions, clipboard images, inversion, opacity, tabs, and keyboard shortcuts."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
+    <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="../favicon-128x128.png" sizes="128x128">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css?v=12">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="nav-wrap">
+      <nav aria-label="Main navigation">
+        <a class="nav-brand" href="../"><img src="../images/icon.webp" width="20" height="20" alt="">Trace</a><a class="nav-link" href="../guides/figma-design-comparison/">Guide</a><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download</a>
+      </nav>
     </div>
-    <div class="faq-item">
-      <h3>How do I overlay a screenshot?</h3>
-      <p>Press <code>⌘G</code> to capture a fresh screenshot of the area beneath the Trace window, or paste an image directly with <code>⌘V</code>. Use the opacity slider to blend the overlay with your running app.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How do I nudge the overlay position precisely?</h3>
-      <p>Use the arrow keys to move the overlay 1px at a time. Hold <strong>Shift</strong> to move in 10px increments. For finer alignment, zoom in on your app before adjusting.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What is inversion mode?</h3>
-      <p>Press <code>⌘I</code> to toggle inversion mode. When on, pixels that match between the overlay and the live app cancel out to black, making misalignments stand out clearly.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Does Trace send any data off my Mac?</h3>
-      <p>No. Trace has no servers and makes no network requests. All screen content and preferences stay entirely on your device. See the <a href="../privacy/">Privacy Policy</a> for full details.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Which macOS version does Trace require?</h3>
-      <p>Trace requires <strong>macOS 26 or later</strong>.</p>
-    </div>
-  </div>
-
-  <hr />
-
-  <h2>Contact</h2>
-  <p>Can't find what you're looking for? We're happy to help.</p>
-
-  <div class="contact-card">
-    <div class="contact-card-text">
-      <h3>Email support</h3>
-      <p>We aim to respond within one business day.</p>
-    </div>
-    <a class="contact-btn" href="mailto:support@ruckuslabs.co">
-      Send email
-    </a>
-  </div>
-
-</main>
-
-<footer>
-  <span>© 2026 Ruckus Labs</span>
-  <a href="../privacy/">Privacy</a>
-  <a href="../support/">Support</a>
-</footer>
-
-
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Trace isn't capturing my screen — what's wrong?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Trace requires the Screen Recording permission to function. Go to System Settings → Privacy & Security → Screen & System Audio Recording and make sure Trace is toggled on."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I overlay a screenshot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Press ⌘G to capture a fresh screenshot of the area beneath the Trace window, or paste an image directly with ⌘V. Use the opacity slider to blend the overlay with your running app."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I nudge the overlay position precisely?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use the arrow keys to move the overlay 1px at a time. Hold Shift to move in 10px increments."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is inversion mode?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Press ⌘I to toggle inversion mode. When on, pixels that match between the overlay and the live app cancel out to black, making misalignments stand out clearly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Trace send any data off my Mac?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Trace has no servers and makes no network requests. All screen content and preferences stay entirely on your device."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which macOS version does Trace require?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Trace requires macOS 26 or later."
-        }
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Support — Trace",
-    "description": "Get help with Trace for Mac.",
-    "url": "https://ruckuslabs.co/trace/support/",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Trace",
-      "url": "https://ruckuslabs.co/trace/"
-    }
-  }
-]
-</script>
-</body>
+    <main id="main" class="document container">
+      <header class="document-heading">
+        <p class="eyebrow">
+          TRACE / SUPPORT
+        </p>
+        <h1>
+          Support
+        </h1>
+        <p>
+          Set up your first comparison, find a shortcut, or get in touch.
+        </p>
+      </header>
+      <nav class="document-toc" aria-label="On this page">
+        <a href="#getting-started">Getting started</a><a href="#permissions">Permissions</a><a href="#comparison">Comparison</a><a href="#shortcuts">Shortcuts</a><a href="#contact">Contact</a>
+      </nav>
+      <section id="getting-started">
+        <h2>
+          Your first comparison
+        </h2>
+        <ol class="prose-list">
+          <li>
+            Copy a reference image and paste it into Trace with <kbd>⌘V</kbd>, or position Trace over a visible reference and press <kbd>⌘G</kbd> to capture the image viewport beneath it. Trace’s own windows are excluded from the capture.
+          </li>
+          <li>
+            Move Trace over your implementation. Use the arrow keys to align the window and <kbd>⌘0</kbd> for Actual Size.
+          </li>
+          <li>
+            Use <kbd>⌘I</kbd> to toggle inversion and <kbd>⌘L</kbd> to toggle 50% image translucence. Matching content blends to neutral gray at 100% window opacity.
+          </li>
+        </ol>
+        <p>
+          <a href="../guides/figma-design-comparison/">Follow the full Figma-to-website comparison guide <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        </p>
+      </section>
+      <section id="permissions">
+        <h2>
+          Screen Recording permission
+        </h2>
+        <p>
+          Screen Recording permission lets Trace capture other applications. You can still paste a clipboard image without capturing the screen.
+        </p>
+        <ol class="prose-list">
+          <li>
+            Try Capture in Trace. If permission is denied, use the app’s <strong>Open Settings</strong> action.
+          </li>
+          <li>
+            In System Settings, go to <strong>Privacy &amp; Security → Screen &amp; System Audio Recording</strong> and enable Trace.
+          </li>
+          <li>
+            Relaunch Trace if macOS requests it, then try <kbd>⌘G</kbd> again.
+          </li>
+        </ol>
+        <p>
+          If a capture spans displays, gaps between displays and off-screen areas remain transparent. Trace shows a notice when part of the requested region is uncovered.
+        </p>
+      </section>
+      <section id="comparison">
+        <h2>
+          Understanding the overlay
+        </h2>
+        <h3>
+          Why do matching areas become gray?
+        </h3>
+        <p>
+          Inversion complements the reference image’s colors. With 50% image translucence and 100% window opacity, matching reference and live content blend to neutral gray. Displaced edges remain visible. This is a visual comparison, not an automatic difference detector.
+        </p>
+        <h3>
+          Image translucence and window opacity
+        </h3>
+        <p>
+          <kbd>⌘L</kbd> switches the image between 50% and fully opaque. The <strong>Window opacity</strong> slider in Preferences changes the entire window from 20% to 100%. Lowering it changes the inversion blend, so return it to 100% for the default comparison.
+        </p>
+        <h3>
+          Size and positioning
+        </h3>
+        <p>
+          <kbd>⌘0</kbd> restores the image’s original logical size. Tab tooltips show both point and pixel dimensions. Arrow keys move the window by 1 macOS point; hold Shift for 10 points. Enable <strong>Arrow keys require ⌘ to move window</strong> in Preferences if you prefer Command-modified movement. Retina display pixels and macOS points are different units.
+        </p>
+        <h3>
+          Click through to your build
+        </h3>
+        <p>
+          Use <kbd>⌃⌘L</kbd> to lock the Trace overlay and pass mouse clicks through to the app underneath. To unlock it, bring Trace to the front using the Dock or Command-Tab, then use the same shortcut. Capture is unavailable while the window is locked.
+        </p>
+        <h3>
+          Tabs, thumbnails, and session history
+        </h3>
+        <p>
+          Each tab has its own undo and redo history. The thumbnail sidebar appears when enabled and there is more than one tab. Images and history are cleared when you quit; preferences and window positions persist. Use Copy if you want to keep an image outside Trace.
+        </p>
+      </section>
+      <section id="shortcuts">
+        <h2>
+          Keyboard shortcuts
+        </h2>
+        <p>
+          These shortcuts apply in Trace. Movement uses the arrow keys by default; Preferences can add the Command modifier.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Trace keyboard shortcuts</caption>
+            <thead>
+              <tr>
+                <th scope="col">
+                  Action
+                </th>
+                <th scope="col">
+                  Shortcut
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  Capture screenshot
+                </th>
+                <td>
+                  <kbd>⌘G</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Paste image / Copy image
+                </th>
+                <td>
+                  <kbd>⌘V / ⌘C</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Undo / Redo
+                </th>
+                <td>
+                  <kbd>⌘Z / ⇧⌘Z</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  New tab / Close tab
+                </th>
+                <td>
+                  <kbd>⌘T / ⌘W</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  New window / Close window
+                </th>
+                <td>
+                  <kbd>⌘N / ⇧⌘W</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Select tab 1–9
+                </th>
+                <td>
+                  <kbd>⌘1–⌘9</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Next / Previous tab
+                </th>
+                <td>
+                  <kbd>⌘} / ⌘{</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Next / Previous tab and resize
+                </th>
+                <td>
+                  <kbd>⌥⌘} / ⌥⌘{</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Toggle inversion
+                </th>
+                <td>
+                  <kbd>⌘I</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Toggle translucence
+                </th>
+                <td>
+                  <kbd>⌘L</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Toggle light / dark appearance
+                </th>
+                <td>
+                  <kbd>⌘D</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Toggle thumbnail sidebar
+                </th>
+                <td>
+                  <kbd>⌘\</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Toggle tab bar
+                </th>
+                <td>
+                  <kbd>⇧⌘T</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Actual Size
+                </th>
+                <td>
+                  <kbd>⌘0</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Zoom in / out
+                </th>
+                <td>
+                  <kbd>⌘+ / ⌘−</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Fit window to image
+                </th>
+                <td>
+                  <kbd>⌘F</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Clear image
+                </th>
+                <td>
+                  <kbd>⌘⌫</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Nudge 1 point / 10 points
+                </th>
+                <td>
+                  <kbd>Arrow / Shift + Arrow</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Lock / unlock overlay
+                </th>
+                <td>
+                  <kbd>⌃⌘L</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Show / hide overlay windows
+                </th>
+                <td>
+                  <kbd>⌃⌘H</kbd>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Preferences
+                </th>
+                <td>
+                  <kbd>⌘,</kbd>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <h2>
+          Compatibility and updates
+        </h2>
+        <p>
+          The current Trace app requires <strong>macOS 26 or later</strong>. Updates are managed by the Mac App Store. Trace’s Check for Updates menu opens its store page.
+        </p>
+        <p>
+          Trace processes screenshots locally without accounts, telemetry, or uploads. <a href="../privacy/">Read the privacy policy.</a>
+        </p>
+      </section>
+      <section id="contact" class="contact-panel">
+        <div>
+          <h2>
+            Still need a hand?
+          </h2>
+          <p>
+            Send your macOS version, what you tried, and what happened. Only include screenshots you’re comfortable sharing.
+          </p>
+        </div>
+        <a class="button" href="mailto:support@ruckuslabs.co">Email support <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© 2026 Ruckus Labs</span><a href="../privacy/">Privacy</a><a href="../support/">Support</a><a href="../guides/figma-design-comparison/">Guide</a>
+    </footer>
+  </body>
 </html>

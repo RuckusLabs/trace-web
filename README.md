@@ -1,6 +1,17 @@
-# Trace marketing site
+# Trace browser workspace experiment
 
 Static HTML, CSS, and JavaScript for https://ruckuslabs.co/trace/. No build step or tracking scripts.
+
+## Experimental branch
+
+`codex/browser-workspace` builds on the preserved marketing branch `codex/marketing-site-refinements` (PR #1). It replaces the homepage hero with a 100dvh browser playground; the marketing content remains below it. The earlier design remains committed on its own branch.
+
+`workspace.css` and `workspace.js` contain the playground. Features include image file upload, drag/drop and clipboard paste, a customizable implementation background, draggable references, tabs/thumbnails, inversion, 50% image blending, separate window opacity, zoom/Actual Size/Fit, alignment, per-reference undo/redo, locking/hiding, a theme toggle, and a shortcut dialog. Data stays in memory and blob URLs are revoked on page exit. No image upload service or account is used.
+
+Keyboard shortcuts are scoped to the focused playground. Command is used on Mac, Control on other systems. Browser-reserved shortcuts such as Command–T/W may take precedence; toolbar/tab controls provide alternatives. Command–N creates a reference tab rather than a native window. The browser’s screen-sharing chooser is used for a single-frame capture and tracks stop immediately afterward. It cannot capture underneath itself while excluding the playground or float over another application. Screen-sharing and clipboard-copy permissions remain browser dependent.
+
+Validation: image-file import, tab creation/switching/closing, inversion, history, keyboard nudging, exact sample alignment, locking, and the shortcut dialog were exercised in the in-app browser. The viewport was checked at desktop and 390px without horizontal page overflow. The permission-dependent screen chooser and clipboard image copy have not been exercised end to end. Local HTML/links/metadata/assets and JavaScript syntax checks passed.
+
 
 Serve this directory with any static server. Keep the `/trace/` deployment prefix when checking canonical URLs and the sitemap. Shared styles live in `styles.css`; only the homepage loads `script.js` for the desktop comparison scene and layered 3D icon. All essential content remains available without JavaScript.
 

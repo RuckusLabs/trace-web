@@ -10,7 +10,7 @@
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trace — Screenshot Overlay &amp; Design Comparison for Mac"><meta name="twitter:description" content="Compare your design with your build. Trace overlays screenshots on websites and apps so you can check spacing, alignment, and layout. Free for Mac."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
     <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=12"><link rel="stylesheet" href="workspace.css?v=2">
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
@@ -46,29 +46,27 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="nav-wrap">
-      <nav aria-label="Main navigation">
-        <a class="nav-brand" href="./"><img src="images/icon.webp" width="20" height="20" alt="">Trace</a><a class="nav-link" href="guides/figma-design-comparison/">Guide</a><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"/></svg> Download</a>
-      </nav>
-    </div>
     <main id="main">
-      <section class="hero">
-        <h1>
-          Design and code.<br>Aligned.
-        </h1>
-        <p>
-          Overlay screenshots on any app and compare pixel by pixel. Built for macOS.
-        </p>
-        <a class="secondary-button hero-download" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12">Free on the Mac App Store <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-        <div class="interactive-frame desktop-preview" aria-label="Desktop preview with a design editor and a floating Trace window">
-<div class="desktop-scene" id="desktop-scene">
-<div class="desktop-menubar" aria-hidden="true"><span class="desktop-apple">◆</span><strong>Design</strong><span>File</span><span>Edit</span><span>View</span><span class="desktop-time">9:41</span></div>
-<div class="design-window"><div class="design-titlebar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="design-file">Northstar / Design</span><span class="design-share">Share</span></div><div class="design-tools" aria-hidden="true"><span class="design-mark">◈</span><span class="tool-selected">↖</span><span>▦</span><span>□</span><span>○</span><span>T</span><span class="design-zoom">100%</span></div><div class="design-workspace"><aside class="design-layers" aria-label="Illustrative design layers"><div class="design-panel-title">Layers</div><div class="layer-selected">▦ <span>Desktop</span></div><div>◇ <span>Navigation</span></div><div>Ｔ <span>Heading</span></div><div>Ｔ <span>Description</span></div><div>▱ <span>Project cards</span></div></aside><div class="design-canvas"><div class="design-artboard" id="design-artboard"><img class="build-image" src="images/screens/sample-build.webp" width="1280" height="888" alt="Sample design in a Figma-inspired editor, with a slightly shifted heading" fetchpriority="high"></div></div><aside class="design-properties" aria-label="Illustrative design properties"><div class="design-panel-title">Design</div><strong>Frame</strong><div class="property-grid"><span>X <b>0</b></span><span>Y <b>0</b></span><span>W <b>640</b></span><span>H <b>444</b></span></div><strong>Fill</strong><span class="fill-property"><i></i> F8F9FC</span><strong>Layout</strong><span>↔ &nbsp; 24</span></aside></div></div>
-<div class="trace-window" id="trace-window" tabindex="0" role="group" aria-label="Floating Trace window. Drag the window or use arrow keys to align it with the design."><div class="frame-titlebar" id="trace-drag-handle"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trace</strong><span class="frame-tab">⌘1 &nbsp; Reference</span><span class="window-grip" aria-hidden="true">⠿</span></div><div class="frame-viewport" id="frame-viewport"><div id="reference-overlay" class="reference-overlay is-inverted"><img class="overlay-normal" id="overlay-image" src="images/screens/reference-content.webp" width="1280" height="888" alt="Inverted reference in the floating Trace window" draggable="false"><img class="overlay-inverted" src="images/screens/inverted-content.webp" width="1280" height="888" alt="" aria-hidden="true" draggable="false"></div></div></div>
-<div class="desktop-dock" aria-hidden="true"><span class="dock-design">◈</span><img src="images/icon.webp" width="24" height="24" alt=""><span class="dock-divider"></span><span class="dock-folder">▰</span></div>
-</div><div class="frame-controls" id="frame-controls" hidden><div class="frame-toggles"><label class="frame-toggle"><input type="checkbox" id="inversion" checked><span class="switch-track" aria-hidden="true"></span> Invert</label><label class="frame-toggle"><input type="checkbox" id="translucence" checked><span class="switch-track" aria-hidden="true"></span> 50% blend</label></div><button type="button" id="reset-overlay"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11a9 9 0 1 1 2.6 7.1M3 4v7h7"/></svg> Align Windows</button></div></div>
-        <p class="frame-disclosure">Northstar · A Figma-inspired design example using Trace screenshots. The heading is deliberately shifted.</p>
-        <div class="interaction-callout"><svg class="interaction-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg><div><strong>Try it yourself</strong><p class="frame-hint" id="frame-hint">Drag the floating Trace window to line up the design. Use the controls above to explore the comparison.</p></div></div>
+      <section class="browser-workspace" id="workspace" aria-label="Interactive Trace workspace" tabindex="0">
+        <header class="workspace-header"><a class="workspace-brand" href="./"><img src="images/icon.webp" width="28" height="28" alt="">Trace <span>Playground</span></a><h1>Design and code. Aligned.</h1><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12">Get Trace for Mac</a></header>
+        <div class="workspace-toolbar" role="toolbar" aria-label="Comparison controls">
+          <button data-action="reference">Add reference <kbd>⌘V</kbd></button><button data-action="baseline">Set background</button><button data-action="capture">Capture screen <kbd>⌘G</kbd></button><span class="toolbar-divider"></span>
+          <button data-action="invert" aria-pressed="true">Invert <kbd>⌘I</kbd></button><button data-action="blend" aria-pressed="true">50% blend <kbd>⌘L</kbd></button><button data-action="lock" aria-pressed="false">Lock <kbd>⌃⌘L</kbd></button>
+          <label class="opacity-control" for="window-opacity">Window opacity <input id="window-opacity" type="range" min="20" max="100" value="100"></label><span class="toolbar-divider"></span><button data-action="undo" aria-label="Undo">Undo</button><button data-action="redo" aria-label="Redo">Redo</button><button data-action="sidebar">Thumbnails</button><button data-action="theme">Theme</button><button data-action="shortcuts">Shortcuts</button>
+        </div>
+        <div class="workspace-tabs" id="workspace-tabs" role="tablist" aria-label="Reference tabs"></div>
+        <div class="workspace-body"><aside class="workspace-sidebar" id="workspace-sidebar" aria-label="Reference thumbnails"><div class="sidebar-heading">References <button data-action="new" aria-label="New reference tab">+</button></div><div id="workspace-thumbnails"></div><p>Paste or drop images here.<br>Your images stay in this browser session.</p></aside>
+          <div class="workspace-stage" id="workspace-stage" aria-label="Comparison canvas">
+            <div class="background-window" id="background-window"><div class="workspace-window-bar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Implementation</span></div><img id="background-image" src="images/screens/sample-build.webp" width="1280" height="888" alt="Implementation background" draggable="false"></div>
+            <div class="workspace-overlay" id="workspace-overlay" tabindex="0" role="group" aria-label="Trace reference. Drag to move, or use arrow keys."><div class="workspace-window-bar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trace</strong><span id="overlay-name">Reference</span><button data-action="hide" aria-label="Hide reference">−</button></div><img id="workspace-image" src="images/screens/reference-content.webp" width="1280" height="888" alt="Design reference" draggable="false"></div>
+            <div class="workspace-empty" id="workspace-empty" hidden>Paste or add an image to start this tab.</div>
+            <div class="workspace-tip" id="workspace-tip">Drag Trace over the background. Invert + 50% blend makes matching areas gray.</div>
+          </div>
+        </div>
+        <footer class="workspace-status"><span id="workspace-message" role="status" aria-live="polite">Try the sample, or add your own screenshots.</span><div><button data-action="align">Align</button><button data-action="out" aria-label="Zoom out">−</button><button data-action="actual" id="zoom-label">100%</button><button data-action="in" aria-label="Zoom in">+</button><button data-action="fit">Fit</button><button data-action="show">Show overlay</button></div></footer>
+        <noscript><p class="workspace-nojs">Enable JavaScript to experiment with this workspace. The guide and product information below remain available.</p></noscript>
+        <input type="file" id="reference-file" accept="image/*" multiple hidden><input type="file" id="background-file" accept="image/*" hidden>
+        <dialog id="workspace-help"><div class="help-heading"><h2>Make yourself at home.</h2><button data-action="close-help" aria-label="Close shortcuts">×</button></div><p>Use Command on Mac or Control on Windows/Linux. Shortcuts work while this workspace is focused. Browser-reserved shortcuts may require the toolbar buttons.</p><dl><dt>Paste / copy image</dt><dd>⌘V / ⌘C</dd><dt>Capture screen</dt><dd>⌘G</dd><dt>Invert / 50% blend</dt><dd>⌘I / ⌘L</dd><dt>Zoom / actual size / fit</dt><dd>⌘+ / ⌘− / ⌘0 / ⌘F</dd><dt>Undo / redo</dt><dd>⌘Z / ⇧⌘Z</dd><dt>New / close tab</dt><dd>⌘T / ⌘W</dd><dt>Switch reference</dt><dd>⌘1–9</dd><dt>Move / move further</dt><dd>Arrows / ⇧Arrows</dd><dt>Thumbnails / tab bar</dt><dd>⌘\ / ⇧⌘T</dd><dt>Lock / hide overlay</dt><dd>⌃⌘L / ⌃⌘H</dd><dt>Change workspace theme</dt><dd>⌘D</dd></dl><p>Screen capture uses your browser’s sharing chooser and captures one frame. Locking lets you interact with the background inside this workspace. This playground cannot float over other apps. Images and history disappear on reload.</p></dialog>
       </section>
       <section class="how-it-works">
         <h2>
@@ -450,6 +448,6 @@
     <footer class="site-footer">
       <span>© 2026 Ruckus Labs</span><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="guides/figma-design-comparison/">Guide</a>
     </footer>
-    <script src="script.js?v=12" defer></script>
+    <script src="script.js?v=12" defer></script><script src="workspace.js?v=2" defer></script>
   </body>
 </html>

@@ -10,7 +10,7 @@
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Trace — Screenshot Overlay &amp; Design Comparison for Mac"><meta name="twitter:description" content="Compare your design with your build. Trace overlays screenshots on websites and apps so you can check spacing, alignment, and layout. Free for Mac."><meta name="twitter:image" content="https://ruckuslabs.co/trace/images/og-image.png"><meta name="twitter:image:alt" content="Trace screenshot overlay comparison for Mac">
     <meta name="application-name" content="Trace"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=12"><link rel="stylesheet" href="workspace.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=12"><link rel="stylesheet" href="workspace.css?v=3">
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
@@ -50,23 +50,20 @@
       <section class="browser-workspace" id="workspace" aria-label="Interactive Trace workspace" tabindex="0">
         <header class="workspace-header"><a class="workspace-brand" href="./"><img src="images/icon.webp" width="28" height="28" alt="">Trace <span>Playground</span></a><h1>Design and code. Aligned.</h1><a class="nav-btn" href="https://apps.apple.com/us/app/trace-pixel-perfect-designs/id6775989256?mt=12">Get Trace for Mac</a></header>
         <div class="workspace-toolbar" role="toolbar" aria-label="Comparison controls">
-          <button data-action="reference">Add reference <kbd>⌘V</kbd></button><button data-action="baseline">Set background</button><button data-action="capture">Capture screen <kbd>⌘G</kbd></button><span class="toolbar-divider"></span>
-          <button data-action="invert" aria-pressed="true">Invert <kbd>⌘I</kbd></button><button data-action="blend" aria-pressed="true">50% blend <kbd>⌘L</kbd></button><button data-action="lock" aria-pressed="false">Lock <kbd>⌃⌘L</kbd></button>
-          <label class="opacity-control" for="window-opacity">Window opacity <input id="window-opacity" type="range" min="20" max="100" value="100"></label><span class="toolbar-divider"></span><button data-action="undo" aria-label="Undo">Undo</button><button data-action="redo" aria-label="Redo">Redo</button><button data-action="sidebar">Thumbnails</button><button data-action="theme">Theme</button><button data-action="shortcuts">Shortcuts</button>
+          <p class="demo-instruction">Drag the Trace window. See what lines up.</p>
+          <div class="demo-controls"><button data-action="invert" aria-pressed="true">Invert</button><button data-action="blend" aria-pressed="true">50% blend</button><button data-action="align">Align</button><button data-action="reset">Reset</button></div>
         </div>
-        <div class="workspace-tabs" id="workspace-tabs" role="tablist" aria-label="Reference tabs"></div>
-        <div class="workspace-body"><aside class="workspace-sidebar" id="workspace-sidebar" aria-label="Reference thumbnails"><div class="sidebar-heading">References <button data-action="new" aria-label="New reference tab">+</button></div><div id="workspace-thumbnails"></div><p>Paste or drop images here.<br>Your images stay in this browser session.</p></aside>
+        <div class="workspace-body">
           <div class="workspace-stage" id="workspace-stage" aria-label="Comparison canvas">
             <div class="background-window" id="background-window"><div class="workspace-window-bar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Implementation</span></div><img id="background-image" src="images/screens/sample-build.webp" width="1280" height="888" alt="Implementation background" draggable="false"></div>
-            <div class="workspace-overlay" id="workspace-overlay" tabindex="0" role="group" aria-label="Trace reference. Drag to move, or use arrow keys."><div class="workspace-window-bar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trace</strong><span id="overlay-name">Reference</span><button data-action="hide" aria-label="Hide reference">−</button></div><img id="workspace-image" src="images/screens/reference-content.webp" width="1280" height="888" alt="Design reference" draggable="false"></div>
-            <div class="workspace-empty" id="workspace-empty" hidden>Paste or add an image to start this tab.</div>
-            <div class="workspace-tip" id="workspace-tip">Drag Trace over the background. Invert + 50% blend makes matching areas gray.</div>
+            <div class="workspace-overlay" id="workspace-overlay" tabindex="0" role="group" aria-label="Trace reference. Drag to move, or use arrow keys."><div class="workspace-window-bar"><span class="traffic-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trace</strong><span id="overlay-name">Design reference</span></div><img id="workspace-image" src="images/screens/reference-content.webp" width="1280" height="888" alt="Design reference" draggable="false"></div>
+            <div class="workspace-tip">Matching areas turn gray. The shifted heading stands out.</div>
           </div>
         </div>
-        <footer class="workspace-status"><span id="workspace-message" role="status" aria-live="polite">Try the sample, or add your own screenshots.</span><div><button data-action="align">Align</button><button data-action="out" aria-label="Zoom out">−</button><button data-action="actual" id="zoom-label">100%</button><button data-action="in" aria-label="Zoom in">+</button><button data-action="fit">Fit</button><button data-action="show">Show overlay</button></div></footer>
-        <noscript><p class="workspace-nojs">Enable JavaScript to experiment with this workspace. The guide and product information below remain available.</p></noscript>
-        <input type="file" id="reference-file" accept="image/*" multiple hidden><input type="file" id="background-file" accept="image/*" hidden>
-        <dialog id="workspace-help"><div class="help-heading"><h2>Make yourself at home.</h2><button data-action="close-help" aria-label="Close shortcuts">×</button></div><p>Use Command on Mac or Control on Windows/Linux. Shortcuts work while this workspace is focused. Browser-reserved shortcuts may require the toolbar buttons.</p><dl><dt>Paste / copy image</dt><dd>⌘V / ⌘C</dd><dt>Capture screen</dt><dd>⌘G</dd><dt>Invert / 50% blend</dt><dd>⌘I / ⌘L</dd><dt>Zoom / actual size / fit</dt><dd>⌘+ / ⌘− / ⌘0 / ⌘F</dd><dt>Undo / redo</dt><dd>⌘Z / ⇧⌘Z</dd><dt>New / close tab</dt><dd>⌘T / ⌘W</dd><dt>Switch reference</dt><dd>⌘1–9</dd><dt>Move / move further</dt><dd>Arrows / ⇧Arrows</dd><dt>Thumbnails / tab bar</dt><dd>⌘\ / ⇧⌘T</dd><dt>Lock / hide overlay</dt><dd>⌃⌘L / ⌃⌘H</dd><dt>Change workspace theme</dt><dd>⌘D</dd></dl><p>Screen capture uses your browser’s sharing chooser and captures one frame. Locking lets you interact with the background inside this workspace. This playground cannot float over other apps. Images and history disappear on reload.</p></dialog>
+        <footer class="workspace-status"><span id="workspace-message" role="status" aria-live="polite">An interactive example. Try dragging the front window.</span><div class="demo-extras"><details class="demo-import"><summary>Try your images</summary><div class="demo-import-panel"><strong>Compare your own screenshots</strong><p>Replace either image, or paste a reference while the canvas is focused. Images stay in this browser session.</p><button data-action="reference">Choose reference</button><button data-action="baseline">Choose background</button></div></details><button data-action="shortcuts" aria-label="Keyboard shortcuts"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h.01M11 9h.01M15 9h.01M7 12h.01M11 12h.01M15 12h.01M8 15h8"/></svg></button></div></footer>
+        <noscript><p class="workspace-nojs">Enable JavaScript to try the interactive example.</p></noscript>
+        <input type="file" id="reference-file" accept="image/*" hidden><input type="file" id="background-file" accept="image/*" hidden>
+        <dialog id="workspace-help"><div class="help-heading"><h2>A few handy shortcuts.</h2><button data-action="close-help" aria-label="Close shortcuts">×</button></div><p>Click the canvas first. Use Command on Mac or Control on Windows/Linux.</p><dl><dt>Move / move further</dt><dd>Arrows / ⇧Arrows</dd><dt>Invert / 50% blend</dt><dd>⌘I / ⌘L</dd><dt>Paste a reference</dt><dd>⌘V</dd><dt>Undo / redo</dt><dd>⌘Z / ⇧⌘Z</dd><dt>Zoom / actual size / fit</dt><dd>⌘+ / ⌘− / ⌘0 / ⌘F</dd></dl><p>Some browsers reserve these shortcuts. The controls above the canvas always work. Images and history disappear on reload.</p></dialog>
       </section>
       <section class="how-it-works">
         <h2>
@@ -448,6 +445,6 @@
     <footer class="site-footer">
       <span>© 2026 Ruckus Labs</span><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="guides/figma-design-comparison/">Guide</a>
     </footer>
-    <script src="script.js?v=12" defer></script><script src="workspace.js?v=2" defer></script>
+    <script src="script.js?v=12" defer></script><script src="workspace.js?v=3" defer></script>
   </body>
 </html>

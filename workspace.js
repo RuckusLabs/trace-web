@@ -7,11 +7,11 @@
   const background = root.querySelector('#background-window');
   const backgroundImage = root.querySelector('#background-image');
   const help = root.querySelector('#workspace-help');
-  const message = root.querySelector('#workspace-message');
+  const message = document.getElementById('workspace-message');
   const referenceFile = root.querySelector('#reference-file');
   const backgroundFile = root.querySelector('#background-file');
-  const defaults = () => ({ src: 'images/screens/reference-content.webp', name: 'Design reference', width: 640, height: 444, baseSrc: 'images/screens/sample-build.webp', baseWidth: 640, baseHeight: 444, x: 0, y: 0, zoom: 1, inverted: true, blended: true });
-  let state = defaults(), past = [], future = [], drag = null, frame = 0, placed = false, generation = 0;
+  const defaults = () => ({ src: 'images/demo/field-reference.svg', name: 'Form & Field · design reference', width: 720, height: 360, baseSrc: 'images/demo/field-build.svg', baseWidth: 720, baseHeight: 360, x: 0, y: 0, zoom: 1, inverted: true, blended: true });
+  let state = defaults(), past = [], future = [], drag = null, frame = 0, placed = false, generation = 0, settleTimer = 0;
   let stageWidth = 0, stageHeight = 0, baseWidth = 0, baseX = 0, baseY = 0;
   const urls = new Set();
   const say = text => { message.textContent = text; };
@@ -32,16 +32,16 @@
     image.style.opacity = state.blended ? '.5' : '1';
     overlay.style.width = `${state.width * state.zoom + 2}px`;
     root.querySelector('#overlay-name').textContent = state.name;
-    root.querySelector('[data-action=invert]').setAttribute('aria-pressed', String(state.inverted));
-    root.querySelector('[data-action=blend]').setAttribute('aria-pressed', String(state.blended));
-    root.querySelector('.workspace-tip').textContent = state.inverted && state.blended
-      ? 'Matching areas turn gray. Drag to compare the edges.'
-      : 'Try Invert with 50% blend to make differences easier to see.';
+    root.querySelector('[data-action=invert]')?.setAttribute('aria-pressed', String(state.inverted));
+    root.querySelector('[data-action=blend]')?.setAttribute('aria-pressed', String(state.blended));
+    message.textContent = state.inverted && state.blended
+      ? (state.src === defaults().src && state.baseSrc === defaults().baseSrc ? 'Matching areas blend to gray, making changes in position, size, and spacing easier to see.' : 'Matching areas turn gray; displaced edges remain visible.')
+      : 'Use Invert + 50% blend to compare.';
     schedule();
   }
   function positionBackground() {
     const ratio = state.baseWidth / state.baseHeight;
-    baseWidth = Math.min(state.baseWidth, Math.max(120, stageWidth - 72), Math.max(120, (stageHeight - 110) * ratio));
+    baseWidth = Math.min(state.baseWidth, Math.max(120, stageWidth - 72), Math.max(120, (stageHeight - 90) * ratio));
     baseX = (stageWidth - baseWidth) / 2; baseY = Math.max(20, (stageHeight - baseWidth / ratio - 34) / 2);
     background.style.width = `${baseWidth + 2}px`;
     background.style.transform = `translate3d(${baseX}px,${baseY}px,0)`;
@@ -54,7 +54,7 @@
     render();
   }
   function fit() {
-    state.zoom = Math.max(.1, Math.min(4, (stageWidth - 72) / state.width, (stageHeight - 110) / state.height));
+    state.zoom = Math.max(.1, Math.min(4, (stageWidth - 72) / state.width, (stageHeight - 90) / state.height));
     state.x = (stageWidth - state.width * state.zoom) / 2; state.y = Math.max(0, (stageHeight - state.height * state.zoom - 34) / 2);
   }
   async function importImage(file, baseline = false) {
@@ -69,12 +69,15 @@
       if (baseline) Object.assign(state, { baseSrc: url, baseWidth: probe.naturalWidth, baseHeight: probe.naturalHeight });
       else Object.assign(state, { src: url, name: file.name || 'Your reference', width: probe.naturalWidth, height: probe.naturalHeight });
       positionBackground(); if (!baseline) fit(); render();
-      root.querySelector('.demo-import').open = false;
+      const imports = root.querySelector('.demo-import'); if (imports) imports.open = false;
       say(baseline ? 'Background replaced. Drag Trace into place.' : 'Reference replaced. Drag it into place.');
       root.focus({ preventScroll: true });
     } catch { urls.delete(url); URL.revokeObjectURL(url); say('That image could not be opened. Try a smaller PNG, JPEG, or WebP.'); }
   }
+  function stopSettling() { clearTimeout(settleTimer); overlay.classList.remove('is-aligning'); }
   function action(name) {
+    stopSettling();
+    if (name === 'align') { overlay.classList.add('is-aligning'); settleTimer = setTimeout(stopSettling, 300); }
     if (name === 'reference') return referenceFile.click();
     if (name === 'baseline') return backgroundFile.click();
     if (name === 'shortcuts') return help.showModal();
@@ -82,7 +85,7 @@
     if (name === 'reset') {
       generation++; state = defaults(); past = []; future = []; placed = false; layout();
       for (const url of urls) URL.revokeObjectURL(url); urls.clear();
-      say('Back to the sample. Drag the front window to explore.'); return;
+      say('Sample reset. Drag to compare.'); return;
     }
     if (name === 'undo' || name === 'redo') {
       const from = name === 'undo' ? past : future, to = name === 'undo' ? future : past;
@@ -91,12 +94,13 @@
     remember();
     if (name === 'invert') state.inverted = !state.inverted;
     if (name === 'blend') state.blended = !state.blended;
-    if (name === 'align') { align(); say('Aligned. Matching areas turn gray with Invert and 50% blend.'); }
+    if (name === 'align') align();
     if (name === 'in') state.zoom = Math.min(4, state.zoom + .1);
     if (name === 'out') state.zoom = Math.max(.1, state.zoom - .1);
     if (name === 'actual') state.zoom = 1;
     if (name === 'fit') fit();
     render();
+    if (name === 'align') say(state.src === defaults().src && state.baseSrc === defaults().baseSrc ? 'Matching areas blend to gray, revealing the offset heading, wider button, and uneven project spacing.' : 'The image edges are aligned. Matching areas blend to gray with inversion and 50% translucence.');
   }
   root.addEventListener('click', event => { const trigger = event.target.closest('[data-action]'); if (trigger) action(trigger.dataset.action); });
   referenceFile.addEventListener('change', () => { void importImage(referenceFile.files[0]); referenceFile.value = ''; });
@@ -106,6 +110,7 @@
   stage.addEventListener('drop', event => { event.preventDefault(); void importImage(event.dataTransfer.files[0]); });
   overlay.addEventListener('pointerdown', event => {
     if (event.button !== 0) return;
+    stopSettling();
     remember(); drag = { id: event.pointerId, x: event.clientX, y: event.clientY, originX: state.x, originY: state.y };
     overlay.setPointerCapture(event.pointerId); overlay.focus({ preventScroll: true }); overlay.classList.add('dragging'); event.preventDefault();
   });
@@ -123,7 +128,7 @@
       if (name) { event.preventDefault(); action(name); return; }
     }
     if (!mod && !event.altKey && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)) {
-      event.preventDefault(); if (!event.repeat) remember(); const step = event.shiftKey ? 10 : 1;
+      event.preventDefault(); stopSettling(); if (!event.repeat) remember(); const step = event.shiftKey ? 10 : 1;
       state.x += event.key === 'ArrowRight' ? step : event.key === 'ArrowLeft' ? -step : 0;
       state.y += event.key === 'ArrowDown' ? step : event.key === 'ArrowUp' ? -step : 0;
       clamp(); schedule();
